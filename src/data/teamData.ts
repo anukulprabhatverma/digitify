@@ -7,6 +7,8 @@ export interface TeamMember {
   number: string;
   initials: string;
   shortIntro: string;
+  experience?: string;
+  image?: string;
   isFounder?: boolean;
   responsibilities: string[];
   expertise: string[];
@@ -21,13 +23,15 @@ export const teamMembers: TeamMember[] = [
     id: 'anukul-prabhat-verma',
     name: 'Anukul Prabhat Verma',
     role: 'FOUNDER & CEO',
-    specialisation: 'Strategy · Digital Growth',
+    specialisation: 'Strategy & Digital Growth',
     category: 'Agency Leadership',
     number: '01',
     initials: 'AV',
     isFounder: true,
+    experience: '6+ Years',
+    image: '/images/team/anukul.jpg',
     shortIntro:
-      'Leads Digitify’s overall direction, strategy and digital presence. With 6 years of experience, Anukul works across branding, digital strategy and creative execution to help businesses build a stronger presence and move towards measurable growth.',
+      "Leads Digitify's overall direction, strategy and digital growth. Focuses on building strong digital presence, connecting creative execution with business objectives, and turning ideas into practical growth systems.",
     responsibilities: [
       'Agency Direction, Strategic Vision & Brand Positioning',
       'Branding, Digital Strategy & Creative Execution Architecture',
@@ -46,22 +50,24 @@ export const teamMembers: TeamMember[] = [
   },
 
   /* ━━━━━━━━━━━━━━━━━━━━
-     02 — AARTI
+     02 — AARTI KUMARI
      ━━━━━━━━━━━━━━━━━━━━ */
   {
-    id: 'aarti',
-    name: 'Aarti',
-    role: 'CO-FOUNDER',
-    specialisation: 'Operations · Leadership',
+    id: 'aarti-kumari',
+    name: 'Aarti Kumari',
+    role: 'CO-FOUNDER & OPERATIONS',
+    specialisation: 'Leadership & Operations',
     category: 'Agency Leadership',
     number: '02',
-    initials: 'AA',
+    initials: 'AK',
+    isFounder: true,
+    image: '/images/team/aarti.png',
     shortIntro:
-      'Leads the day-to-day direction and coordination of Digitify, keeping teams, projects and execution aligned. Aarti works across operations, planning and internal coordination to keep the agency moving smoothly from strategy to delivery.',
+      "Leads the internal operations and keeps projects, people and execution aligned. She works across the team to maintain consistency, coordination and smooth delivery from planning to completion.",
     responsibilities: [
-      'Day-to-Day Agency Direction & Operational Alignment',
+      'Day-to-Day Agency Operations & Delivery Governance',
       'Cross-Disciplinary Team Coordination & Project Planning',
-      'Workflow Governance from Strategy to Delivery',
+      'Workflow Discipline from Planning to Completion',
       'Internal Resource Scheduling & Operational Standards',
     ],
     expertise: [
@@ -81,13 +87,15 @@ export const teamMembers: TeamMember[] = [
   {
     id: 'nishu-kumar',
     name: 'Nishu Kumar',
-    role: 'UI/UX DESIGNER',
-    specialisation: 'Experience · Interface Design',
+    role: 'UI/UX EXPERT',
+    specialisation: 'Product Experience & Interface Design',
     category: 'Digital Experience & Design',
     number: '03',
     initials: 'NK',
+    experience: '6–7 Years',
+    image: '/images/team/nishu.png',
     shortIntro:
-      'Brings 6–7 years of experience in UI/UX design, creating digital experiences that balance usability, structure and visual clarity. Nishu focuses on turning complex requirements into intuitive and purposeful interfaces.',
+      "Brings extensive experience in UI/UX design, creating intuitive digital experiences that balance usability, visual clarity and business goals.",
     responsibilities: [
       'Digital Product & Web Experience Architecture',
       'Translating Complex Requirements into Intuitive Interfaces',
@@ -111,13 +119,14 @@ export const teamMembers: TeamMember[] = [
   {
     id: 'ravneet-singh',
     name: 'Ravneet Singh',
-    role: 'ADVISOR',
-    specialisation: 'Consultation · Strategic Guidance',
+    role: 'ADVISORY & CONSULTATION',
+    specialisation: 'Strategic Advisory',
     category: 'Strategic Advisory',
     number: '04',
     initials: 'RS',
+    image: '/images/team/ravneet.jpg',
     shortIntro:
-      'Supports Digitify with consultation and strategic perspective, helping shape decisions, evaluate opportunities and bring an outside view to important business and project conversations.',
+      "Supports Digitify with strategic consultation and an outside perspective, helping shape decisions, refine direction and approach projects with greater clarity.",
     responsibilities: [
       'External Strategic Consultation & Decision Perspective',
       'Evaluating Business Opportunities & Strategic Roadmaps',
@@ -135,32 +144,34 @@ export const teamMembers: TeamMember[] = [
   },
 
   /* ━━━━━━━━━━━━━━━━━━━━
-     05 — AASHISH GULSHAN
+     05 — RAHUL VERMA
      ━━━━━━━━━━━━━━━━━━━━ */
   {
-    id: 'aashish-gulshan',
-    name: 'Aashish Gulshan',
-    role: 'WEB DEVELOPER',
-    specialisation: 'Development · Technology',
-    category: 'Engineering & Technology',
+    id: 'rahul-verma',
+    name: 'Rahul Verma',
+    role: 'DIGITAL MARKETING CONSULTANT',
+    specialisation: 'Performance & Growth',
+    category: 'Growth & Marketing',
     number: '05',
-    initials: 'AG',
+    initials: 'RV',
+    image: '/images/team/rahul.png',
     shortIntro:
-      'Translates creative and UX directions into functional digital experiences. Aashish focuses on web development, implementation and the technical side of bringing Digitify’s digital work to life.',
+      "Works across digital marketing and growth strategy, helping brands identify the right channels, campaigns and opportunities to build a stronger digital presence.",
     responsibilities: [
-      'Frontend Web Development & Implementation',
-      'Translating Creative & UX Directions into Code',
-      'Responsive Web Performance & Modern Standards',
-      'Interactive Component Engineering & Delivery',
+      'Digital Marketing Direction & Campaign Thinking',
+      'Connecting Business Objectives with Practical Strategy',
+      'Growth-Focused Marketing Execution Frameworks',
+      'Audience Acquisition & Performance Strategy',
     ],
     expertise: [
-      'Web Development',
-      'Frontend Implementation',
-      'Responsive Engineering',
-      'Digital Production',
+      'Digital Marketing',
+      'Marketing Strategy',
+      'Campaign Thinking',
+      'Performance & Growth',
+      'Channel Alignment',
     ],
     projectFocus:
-      'Focuses on the technical side of bringing Digitify’s digital work to life with precision implementation and fluid responsiveness.',
+      'Contributes to strategic marketing initiatives, campaign ideation, and growth-focused execution aligned with commercial objectives.',
   },
 
   /* ━━━━━━━━━━━━━━━━━━━━
@@ -251,32 +262,32 @@ export const teamMembers: TeamMember[] = [
   },
 
   /* ━━━━━━━━━━━━━━━━━━━━
-     09 — RAHUL VERMA
+     09 — AASHISH GULSHAN
      ━━━━━━━━━━━━━━━━━━━━ */
   {
-    id: 'rahul-verma',
-    name: 'Rahul Verma',
-    role: 'DIGITAL MARKETER & CONSULTANT',
-    specialisation: 'Marketing · Strategy',
-    category: 'Growth & Marketing',
+    id: 'aashish-gulshan',
+    name: 'Aashish Gulshan',
+    role: 'WEB DEVELOPER',
+    specialisation: 'Development · Technology',
+    category: 'Engineering & Technology',
     number: '09',
-    initials: 'RV',
+    initials: 'AG',
     shortIntro:
-      'Works across digital marketing and consultation, helping connect business objectives with practical marketing direction. Rahul contributes to campaign thinking, digital strategy and growth-focused execution.',
+      'Translates creative and UX directions into functional digital experiences. Aashish focuses on web development, implementation and the technical side of bringing Digitify’s digital work to life.',
     responsibilities: [
-      'Digital Marketing Direction & Campaign Thinking',
-      'Connecting Business Objectives with Practical Strategy',
-      'Growth-Focused Marketing Execution Frameworks',
-      'Marketing Consultation & Channel Alignment',
+      'Frontend Web Development & Implementation',
+      'Translating Creative & UX Directions into Code',
+      'Responsive Web Performance & Modern Standards',
+      'Interactive Component Engineering & Delivery',
     ],
     expertise: [
-      'Digital Marketing',
-      'Marketing Consultation',
-      'Campaign Thinking',
-      'Growth Execution',
+      'Web Development',
+      'Frontend Implementation',
+      'Responsive Engineering',
+      'Digital Production',
     ],
     projectFocus:
-      'Contributes to strategic marketing initiatives, campaign ideation, and growth-focused execution aligned with commercial objectives.',
+      'Focuses on the technical side of bringing Digitify’s digital work to life with precision implementation and fluid responsiveness.',
   },
 
   /* ━━━━━━━━━━━━━━━━━━━━

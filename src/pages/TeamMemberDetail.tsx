@@ -6,7 +6,9 @@ import { teamMembers } from '../data/teamData';
 export const TeamMemberDetail: React.FC = () => {
   const { memberId } = useParams<{ memberId: string }>();
 
-  const memberIndex = teamMembers.findIndex((m) => m.id === memberId);
+  const memberIndex = teamMembers.findIndex(
+    (m) => m.id === memberId || (memberId === 'aarti' && m.id === 'aarti-kumari')
+  );
   const member = teamMembers[memberIndex];
 
   if (!member) {
@@ -41,40 +43,80 @@ export const TeamMemberDetail: React.FC = () => {
 
       {/* Main Profile Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 xs:gap-8 lg:gap-14 items-start">
-        {/* Left Column: Editorial Photo Placeholder */}
+        {/* Left Column: Editorial Photo Card */}
         <div className="lg:col-span-5 flex flex-col space-y-4">
-          <div className="relative aspect-square xs:aspect-[4/5] w-full rounded-xl sm:rounded-2xl border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface overflow-hidden flex flex-col items-center justify-between p-4 xs:p-6 sm:p-8">
-            {/* Top Badge */}
-            <div className="w-full flex items-center justify-between">
-              <span className="text-[11px] font-mono uppercase tracking-wider text-day-muted dark:text-agency-muted">
-                {member.number}
-              </span>
-              <span className="text-[10px] font-mono uppercase tracking-widest px-2.5 py-1 rounded-full border border-day-border dark:border-agency-border bg-white dark:bg-black text-day-subtext dark:text-agency-subtext">
-                PHOTO PLACEHOLDER
-              </span>
-            </div>
+          <div className="relative aspect-square xs:aspect-[4/5] w-full rounded-xl sm:rounded-2xl border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface overflow-hidden group shadow-sm">
+            {member.image ? (
+              <>
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                {/* Subtle gradient vignette at top and bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30 pointer-events-none" />
 
-            {/* Central Monogram Placeholder Graphic */}
-            <div className="flex flex-col items-center justify-center text-center my-auto">
-              <div className="w-20 h-20 xs:w-24 xs:h-24 sm:w-28 sm:h-28 rounded-full border border-day-border dark:border-agency-border bg-white dark:bg-[#08080a] flex items-center justify-center mb-3 sm:mb-4 shadow-sm">
-                <span className="text-2xl xs:text-3xl sm:text-4xl font-display font-medium tracking-tight text-black dark:text-white">
-                  {member.initials}
-                </span>
+                {/* Top Badges */}
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                  <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold backdrop-blur-md bg-black/50 text-white border border-white/20">
+                    {member.number}
+                  </span>
+                  {member.experience ? (
+                    <span className="px-3 py-1 rounded-full text-[11px] font-mono tracking-wider backdrop-blur-md bg-digitify-purple/90 text-white border border-digitify-purple/40 font-medium">
+                      {member.experience}
+                    </span>
+                  ) : (
+                    <span className="px-3 py-1 rounded-full text-[10px] font-mono tracking-widest uppercase backdrop-blur-md bg-black/40 text-white/90 border border-white/10">
+                      CORE TEAM
+                    </span>
+                  )}
+                </div>
+
+                {/* Bottom Details Overlay */}
+                <div className="absolute bottom-4 left-4 right-4 pointer-events-none space-y-0.5">
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-white/80 block">
+                    {member.role}
+                  </span>
+                  <span className="text-base sm:text-lg font-display font-medium text-white block">
+                    {member.name}
+                  </span>
+                </div>
+              </>
+            ) : (
+              <div className="w-full h-full flex flex-col items-center justify-between p-4 xs:p-6 sm:p-8">
+                {/* Top Badge */}
+                <div className="w-full flex items-center justify-between">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-day-muted dark:text-agency-muted">
+                    {member.number}
+                  </span>
+                  <span className="text-[10px] font-mono uppercase tracking-widest px-2.5 py-1 rounded-full border border-day-border dark:border-agency-border bg-white dark:bg-black text-day-subtext dark:text-agency-subtext">
+                    PHOTO PLACEHOLDER
+                  </span>
+                </div>
+
+                {/* Central Monogram Placeholder Graphic */}
+                <div className="flex flex-col items-center justify-center text-center my-auto">
+                  <div className="w-20 h-20 xs:w-24 xs:h-24 sm:w-28 sm:h-28 rounded-full border border-day-border dark:border-agency-border bg-white dark:bg-[#08080a] flex items-center justify-center mb-3 sm:mb-4 shadow-sm">
+                    <span className="text-2xl xs:text-3xl sm:text-4xl font-display font-medium tracking-tight text-black dark:text-white">
+                      {member.initials}
+                    </span>
+                  </div>
+                  <span className="text-sm font-mono uppercase tracking-widest text-black dark:text-white font-medium">
+                    {member.name}
+                  </span>
+                  <span className="text-xs font-mono text-day-muted dark:text-agency-muted mt-1">
+                    Verified team photo coming soon
+                  </span>
+                </div>
+
+                {/* Bottom Guide Note */}
+                <div className="w-full border-t border-day-border/60 dark:border-agency-border/60 pt-3 text-center">
+                  <span className="text-[10px] font-mono text-day-muted dark:text-agency-muted block">
+                    RECOMMENDED: 800 × 1000PX (PORTRAIT JPG/PNG)
+                  </span>
+                </div>
               </div>
-              <span className="text-sm font-mono uppercase tracking-widest text-black dark:text-white font-medium">
-                {member.name}
-              </span>
-              <span className="text-xs font-mono text-day-muted dark:text-agency-muted mt-1">
-                Replace with verified team photo
-              </span>
-            </div>
-
-            {/* Bottom Guide Note */}
-            <div className="w-full border-t border-day-border/60 dark:border-agency-border/60 pt-3 text-center">
-              <span className="text-[10px] font-mono text-day-muted dark:text-agency-muted block">
-                RECOMMENDED: 800 × 1000PX (PORTRAIT JPG/PNG)
-              </span>
-            </div>
+            )}
           </div>
 
           {/* Quick Connect Pill */}
@@ -110,6 +152,12 @@ export const TeamMemberDetail: React.FC = () => {
               <span className="text-black dark:text-white font-semibold">{member.role}</span>
               <span className="text-day-border dark:text-agency-border">·</span>
               <span className="text-day-muted dark:text-agency-muted">{member.specialisation}</span>
+              {member.experience && (
+                <>
+                  <span className="text-day-border dark:text-agency-border">·</span>
+                  <span className="text-digitify-purple font-semibold">{member.experience}</span>
+                </>
+              )}
             </p>
           </div>
 

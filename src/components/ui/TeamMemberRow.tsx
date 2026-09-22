@@ -37,29 +37,40 @@ export const TeamMemberRow: React.FC<TeamMemberRowProps> = ({ member }) => {
 
             {/* Photo / Initials Monogram */}
             <div
-              className={`relative w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl border shrink-0 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 ${
+              className={`relative w-12 h-12 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-xl border shrink-0 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 ${
                 member.isFounder
                   ? 'border-digitify-purple/40 bg-digitify-purple/5 shadow-sm'
                   : 'border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface group-hover:border-black/30 dark:group-hover:border-white/30'
               }`}
             >
-              <span
-                className={`text-xs sm:text-sm font-mono font-semibold tracking-wider transition-colors duration-300 ${
-                  member.isFounder
-                    ? 'text-digitify-purple'
-                    : 'text-black dark:text-white group-hover:text-digitify-purple'
-                }`}
-              >
-                {member.initials}
-              </span>
-              <span className="text-[7px] sm:text-[8px] font-mono uppercase tracking-tighter text-day-muted dark:text-agency-muted">
-                PHOTO
-              </span>
+              {member.image ? (
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                  loading="lazy"
+                />
+              ) : (
+                <>
+                  <span
+                    className={`text-xs sm:text-sm font-mono font-semibold tracking-wider transition-colors duration-300 ${
+                      member.isFounder
+                        ? 'text-digitify-purple'
+                        : 'text-black dark:text-white group-hover:text-digitify-purple'
+                    }`}
+                  >
+                    {member.initials}
+                  </span>
+                  <span className="text-[7px] sm:text-[8px] font-mono uppercase tracking-tighter text-day-muted dark:text-agency-muted">
+                    PHOTO
+                  </span>
+                </>
+              )}
             </div>
 
             {/* Name (Primary Visual Element) */}
             <div className="flex flex-col min-w-0">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
                 <span
                   className={`h-1.5 w-1.5 rounded-full bg-digitify-purple shrink-0 transition-opacity duration-300 ${
                     member.isFounder
@@ -78,16 +89,23 @@ export const TeamMemberRow: React.FC<TeamMemberRowProps> = ({ member }) => {
                 </h3>
                 {member.isFounder && (
                   <span className="hidden md:inline-flex items-center px-2 py-0.5 rounded text-[9px] font-mono uppercase tracking-wider bg-digitify-purple/10 text-digitify-purple border border-digitify-purple/20 shrink-0">
-                    FOUNDER
+                    LEADERSHIP
                   </span>
                 )}
               </div>
 
               {/* Mobile Only: Role & Specialisation stacked below name */}
               <div className="sm:hidden mt-1 space-y-0.5">
-                <span className="text-xs font-mono uppercase tracking-wider text-black dark:text-white font-semibold block truncate">
-                  {member.role}
-                </span>
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span className="text-xs font-mono uppercase tracking-wider text-black dark:text-white font-semibold">
+                    {member.role}
+                  </span>
+                  {member.experience && (
+                    <span className="px-1.5 py-0.5 rounded text-[9px] font-mono bg-digitify-purple/10 text-digitify-purple border border-digitify-purple/20 shrink-0 font-medium">
+                      {member.experience}
+                    </span>
+                  )}
+                </div>
                 <span className="text-[11px] font-mono text-day-muted dark:text-agency-muted block truncate">
                   {member.specialisation}
                 </span>
@@ -99,9 +117,16 @@ export const TeamMemberRow: React.FC<TeamMemberRowProps> = ({ member }) => {
           <div className="flex items-center gap-3 sm:gap-6 shrink-0">
             {/* Desktop Only: Role (smaller but clearly visible) & Specialisation (even more subtle) */}
             <div className="hidden sm:flex flex-col text-right items-end justify-center">
-              <span className="text-xs sm:text-sm font-mono uppercase tracking-wider text-black dark:text-white font-semibold block group-hover:text-digitify-purple transition-colors duration-300">
-                {member.role}
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="text-xs sm:text-sm font-mono uppercase tracking-wider text-black dark:text-white font-semibold block group-hover:text-digitify-purple transition-colors duration-300">
+                  {member.role}
+                </span>
+                {member.experience && (
+                  <span className="px-1.5 py-0.5 rounded text-[10px] font-mono tracking-wider bg-digitify-purple/10 text-digitify-purple border border-digitify-purple/20 shrink-0 font-medium">
+                    {member.experience}
+                  </span>
+                )}
+              </div>
               <span className="text-[11px] xs:text-xs font-mono text-day-muted dark:text-agency-muted mt-0.5 block">
                 {member.specialisation}
               </span>
