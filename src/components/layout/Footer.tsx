@@ -32,13 +32,13 @@ export const Footer: React.FC = () => {
                 Direct Inquiries
               </span>
               <a
-                href="mailto:contact@yourdomain.com"
+                href="mailto:anukulprabhatverma@gmail.com"
                 className="text-sm text-black dark:text-white hover:text-digitify-purple transition-colors font-mono underline underline-offset-4"
               >
-                contact@yourdomain.com
+                anukulprabhatverma@gmail.com
               </a>
               <span className="block text-[11px] text-day-muted dark:text-agency-muted mt-1 font-mono">
-                [Editable Email Placeholder]
+                Official Inquiries & Delivery
               </span>
             </div>
           </div>

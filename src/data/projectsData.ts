@@ -1,133 +1,123 @@
-export type ProjectCategory =
-  | 'Branding'
-  | 'Social Media'
-  | 'Digital Marketing'
-  | 'Graphic Design'
-  | 'Web Design';
+/**
+ * Digitify Agency — Work Projects Data
+ * 
+ * EDITABLE CONFIGURATION:
+ * Contained Portfolio Preview System:
+ * - Website projects use local homepage snapshots (e.g. '/images/projects/coolbee.png')
+ * - PDF projects use local PDF decks (e.g. '/projects/divas-awards.pdf')
+ * - Previews are strictly contained and vertically scrollable inside each card
+ * - No iframes, no X-Frame/CSP/DNS errors, completely offline-reliable
+ */
 
-export type PreviewType = 'pdf' | 'website';
+export type ProjectCategory = 'Website' | 'Social Media' | 'Digital Marketing';
+
+export type PreviewType = 'image' | 'pdf';
 
 export interface ProjectItem {
-  id: number | string;
+  id: string | number;
+  number: string;
   name: string;
-  category: ProjectCategory;
+  category: string;
+  categories: ProjectCategory[];
   previewType: PreviewType;
   previewUrl: string;
+  previewImage: string;
   domain?: string;
-  caseStudyUrl: string | null;
-  // Optional metadata
-  number: string;
-  description?: string;
-  year?: string;
+  description: string;
   tag?: string;
-  image?: string;
-  externalLink?: string;
   fallbackMessage?: string;
-  title?: string; // backwards compatibility
+  image?: string;
 }
 
 export const projectsData: ProjectItem[] = [
   {
-    id: 1,
+    id: 'coolbee-store',
     number: '01',
-    name: 'Brand Campaign Strategy',
-    title: 'Brand Campaign Strategy',
-    category: 'Digital Marketing',
-    previewType: 'pdf',
-    previewUrl: '/projects/project-01.pdf',
-    domain: 'campaign.digitify.agency',
-    caseStudyUrl: null,
+    name: 'Coolbee Store',
+    category: 'Website · Social Media · Digital Marketing',
+    categories: ['Website', 'Social Media', 'Digital Marketing'],
+    previewType: 'image',
+    previewUrl: 'https://coolbeestore.com',
+    previewImage: '/images/projects/coolbee.png',
+    domain: 'coolbeestore.com',
     description:
-      'Multi-channel strategic campaign presentation deck detailing brand positioning, audience frameworks, creative direction, and media rollout.',
-    year: '2025',
-    tag: 'CAMPAIGN / EDITORIAL',
-    image: '/images/projects/project-01.svg',
-    externalLink: '/projects/project-01.pdf',
+      'E-commerce storefront and integrated social media management for modern consumer essentials and lifestyle merchandise.',
+    tag: 'WEBSITE / SOCIAL / DIGITAL MARKETING',
+    fallbackMessage: 'Contained visual snapshot · Vertically scrollable inside card',
   },
   {
-    id: 2,
+    id: 'homecraft-textiles',
     number: '02',
-    name: 'Awards Performance Platform',
-    title: 'Awards Performance Platform',
-    category: 'Web Design',
-    previewType: 'website',
-    previewUrl: 'https://example.com',
-    domain: 'awards.digitify.agency',
-    caseStudyUrl: null,
+    name: 'Homecraft Textiles',
+    category: 'Website',
+    categories: ['Website'],
+    previewType: 'image',
+    previewUrl: 'https://homecrafttextiles.com.au',
+    previewImage: '/images/projects/homecraft.png',
+    domain: 'homecrafttextiles.com.au',
     description:
-      'Precision-led performance marketing web experience pairing high-impact art direction with strategic conversion architecture and responsive interface layouts.',
-    year: '2025',
-    tag: 'PERFORMANCE / WEB',
-    image: '/images/projects/project-02.svg',
-    externalLink: 'https://example.com',
-    fallbackMessage: 'Live website preview · If external site restricts framing, use direct link',
+      'Curated textile commerce experience showcasing tactile fabrics, custom textures, and interior design materials.',
+    tag: 'WEBSITE',
+    fallbackMessage: 'Contained visual snapshot · Vertically scrollable inside card',
   },
   {
-    id: 3,
+    id: 'carrotstick',
     number: '03',
-    name: 'Brand Identity System & Guidelines',
-    title: 'Brand Identity System & Guidelines',
-    category: 'Branding',
-    previewType: 'pdf',
-    previewUrl: '/projects/project-03.pdf',
-    domain: 'identity.digitify.agency',
-    caseStudyUrl: null,
+    name: 'Carrotstick',
+    category: 'Website',
+    categories: ['Website'],
+    previewType: 'image',
+    previewUrl: 'https://carrotstick.com',
+    previewImage: '/images/projects/carrotstick.png',
+    domain: 'carrotstick.com',
     description:
-      'Comprehensive brand identity deck outlining bespoke monogram architecture, typography guidelines, and design system tokens for cross-platform coherence.',
-    year: '2025',
-    tag: 'BRANDING / SYSTEM',
-    image: '/images/projects/project-03.svg',
-    externalLink: '/projects/project-03.pdf',
+      'Interactive digital web platform engineered for seamless navigation, intuitive onboarding, and product discovery.',
+    tag: 'WEBSITE',
+    fallbackMessage: 'Contained visual snapshot · Vertically scrollable inside card',
   },
   {
-    id: 4,
+    id: 'sign-of-the-times-london',
     number: '04',
-    name: 'Digital Flagship Experience',
-    title: 'Digital Flagship Experience',
-    category: 'Web Design',
-    previewType: 'website',
-    previewUrl: 'https://example.com',
-    domain: 'flagship.digitify.agency',
-    caseStudyUrl: null,
+    name: 'Sign of the Times London',
+    category: 'Website',
+    categories: ['Website'],
+    previewType: 'image',
+    previewUrl: 'https://signofthetimeslondon.com',
+    previewImage: '/images/projects/signofthetimes.png',
+    domain: 'signofthetimeslondon.com',
     description:
-      'Editorial digital flagship combining refined typography, fluid micro-interactions, and accessible frontend engineering.',
-    year: '2025',
-    tag: 'WEB / INTERACTION',
-    image: '/images/projects/project-04.svg',
-    externalLink: 'https://example.com',
+      'Curated luxury resale and fashion e-commerce storefront delivering a high-end editorial shopping experience.',
+    tag: 'WEBSITE',
+    fallbackMessage: 'Contained visual snapshot · Vertically scrollable inside card',
   },
   {
-    id: 5,
+    id: 'urban-platter',
     number: '05',
-    name: 'Visual Identity & Collateral',
-    title: 'Visual Identity & Collateral',
-    category: 'Graphic Design',
-    previewType: 'pdf',
-    previewUrl: '/projects/placeholder-project.pdf',
-    domain: 'collateral.digitify.agency',
-    caseStudyUrl: null,
+    name: 'Urban Platter',
+    category: 'Website',
+    categories: ['Website'],
+    previewType: 'image',
+    previewUrl: 'https://urbanplatter.com',
+    previewImage: '/images/projects/urbanplatter.png',
+    domain: 'urbanplatter.com',
     description:
-      'Editorial presentation assets, digital marketing materials, and high-fidelity collateral structured for consistent brand expression.',
-    year: '2025',
-    tag: 'CREATIVE / GRAPHICS',
-    image: '/images/projects/project-05.svg',
-    externalLink: '/projects/placeholder-project.pdf',
+      'Specialty culinary and gourmet food online storefront connecting food lovers with premium ingredients.',
+    tag: 'WEBSITE',
+    fallbackMessage: 'Contained visual snapshot · Vertically scrollable inside card',
   },
   {
-    id: 6,
+    id: 'divas-entertainment-awards',
     number: '06',
-    name: 'Social Narrative Framework',
-    title: 'Social Narrative Framework',
-    category: 'Social Media',
+    name: 'Divas Entertainment Awards',
+    category: 'Digital Marketing · Social Media',
+    categories: ['Digital Marketing', 'Social Media'],
     previewType: 'pdf',
-    previewUrl: '/projects/placeholder-project.pdf',
-    domain: 'social.digitify.agency',
-    caseStudyUrl: null,
+    previewUrl: '/projects/divas-awards.pdf',
+    previewImage: '/images/projects/divas-awards.png',
+    domain: 'divasentertainment.com',
     description:
-      'A curated social media ecosystem blending brand storytelling, structured editorial calendars, and community engagement guidelines.',
-    year: '2025',
-    tag: 'SOCIAL / NARRATIVE',
-    image: '/images/projects/project-06.svg',
-    externalLink: '/projects/placeholder-project.pdf',
+      'Comprehensive digital marketing campaign architecture and social media storytelling for premier entertainment honors.',
+    tag: 'DIGITAL MARKETING / SOCIAL',
+    fallbackMessage: 'Contained PDF deck preview · Vertically scrollable inside card',
   },
 ];

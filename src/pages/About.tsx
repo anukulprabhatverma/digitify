@@ -86,19 +86,23 @@ export const About: React.FC = () => {
           SECTION — THE TEAM (02 — THE TEAM)
           ━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 sm:mb-8 gap-2 xs:gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-4 sm:mb-6 gap-2 xs:gap-3">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
               02 — THE TEAM
             </span>
             <h2 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-display font-medium tracking-tight text-black dark:text-white">
-              THE MINDS BEHIND DIGITIFY
+              LEADERSHIP & SPECIALISTS
             </h2>
           </div>
           <span className="hidden xs:block text-xs font-mono text-day-muted dark:text-agency-muted">
-            CLICK TO VIEW INDIVIDUAL PROFILE
+            HOVER OR TAP TO EXPAND BRIEF · CLICK FOR PROFILE
           </span>
         </div>
+
+        <p className="text-xs sm:text-sm text-day-subtext dark:text-agency-subtext max-w-2xl mb-6 font-mono leading-relaxed">
+          Built around strategy, design, technology, marketing, research and execution working together. A focused agency structure engineered for direct collaboration and measurable growth.
+        </p>
 
         {/* Interactive Editorial Team List with Profile Photo Placeholders */}
         <div className="border-t border-day-border dark:border-agency-border divide-y divide-transparent">

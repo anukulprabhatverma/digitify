@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2, Search, Compass, Palette, Cog, Send, ShieldCheck, Layers } from 'lucide-react';
 import { caseStudiesData } from '../data/caseStudiesData';
 
 export const CaseStudyDetail: React.FC = () => {
@@ -34,8 +34,8 @@ export const CaseStudyDetail: React.FC = () => {
             CASE STUDY {study.number}
           </span>
           <span className="text-day-border dark:text-agency-border">/</span>
-          <span className="text-[11px] xs:text-xs font-mono text-day-muted dark:text-agency-muted">
-            {study.clientPlaceholder}
+          <span className="text-[11px] xs:text-xs font-mono text-day-muted dark:text-agency-muted uppercase tracking-wider">
+            {study.client}
           </span>
         </div>
 
@@ -43,7 +43,7 @@ export const CaseStudyDetail: React.FC = () => {
           {study.title}
         </h1>
 
-        <p className="text-sm xs:text-base sm:text-lg text-day-subtext dark:text-agency-subtext font-mono max-w-2xl">
+        <p className="text-sm xs:text-base sm:text-lg text-day-subtext dark:text-agency-subtext font-mono max-w-3xl leading-relaxed">
           {study.subtitle}
         </p>
 
@@ -53,52 +53,20 @@ export const CaseStudyDetail: React.FC = () => {
             <img
               src={study.overviewImage}
               alt={study.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
             />
           </div>
         </div>
       </section>
 
-      {/* 01 — PROJECT INTRODUCTION */}
+      {/* ━━━━━━━━━━━━━━━━━━━━
+          01 — THE CHALLENGE
+          ━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8">
           <div className="lg:col-span-4">
             <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
-              01 — INTRODUCTION
-            </span>
-            <h2 className="text-lg xs:text-xl sm:text-2xl font-display font-medium text-black dark:text-white">
-              {sections.intro.headline}
-            </h2>
-          </div>
-
-          <div className="lg:col-span-8 space-y-5 sm:space-y-6">
-            <p className="text-xs sm:text-sm md:text-base text-day-subtext dark:text-agency-subtext leading-relaxed">
-              {sections.intro.description}
-            </p>
-
-            {/* Meta Table */}
-            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 p-3.5 xs:p-4 rounded-lg border border-day-border dark:border-agency-border bg-day-surface/60 dark:bg-agency-surface/40">
-              {sections.intro.metaItems.map((item, idx) => (
-                <div key={idx}>
-                  <span className="text-[10px] font-mono text-day-muted dark:text-agency-muted uppercase tracking-wider block">
-                    {item.label}
-                  </span>
-                  <span className="text-xs font-mono text-black dark:text-white mt-0.5 block">
-                    {item.value}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 02 — CHALLENGE */}
-      <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8">
-          <div className="lg:col-span-4">
-            <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
-              02 — CHALLENGE
+              01 — THE CHALLENGE
             </span>
             <h2 className="text-lg xs:text-xl sm:text-2xl font-display font-medium text-black dark:text-white">
               {sections.challenge.headline}
@@ -119,7 +87,7 @@ export const CaseStudyDetail: React.FC = () => {
                   <span className="text-xs font-mono text-digitify-purple shrink-0 mt-0.5">
                     [0{idx + 1}]
                   </span>
-                  <p className="text-xs sm:text-sm text-day-subtext dark:text-agency-subtext">{obstacle}</p>
+                  <p className="text-xs sm:text-sm text-day-subtext dark:text-agency-subtext leading-relaxed">{obstacle}</p>
                 </div>
               ))}
             </div>
@@ -127,25 +95,65 @@ export const CaseStudyDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* 03 — STRATEGY */}
+      {/* ━━━━━━━━━━━━━━━━━━━━
+          02 — DISCOVER
+          ━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8">
           <div className="lg:col-span-4">
-            <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
-              03 — STRATEGY
-            </span>
+            <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-digitify-purple mb-1.5">
+              <Search size={13} />
+              <span>02 — DISCOVER</span>
+            </div>
             <h2 className="text-lg xs:text-xl sm:text-2xl font-display font-medium text-black dark:text-white">
-              {sections.strategy.headline}
+              {sections.discover.headline}
             </h2>
           </div>
 
           <div className="lg:col-span-8 space-y-4">
             <p className="text-xs sm:text-sm md:text-base text-day-subtext dark:text-agency-subtext leading-relaxed">
-              {sections.strategy.description}
+              {sections.discover.description}
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-1">
+              {sections.discover.findings.map((finding, idx) => (
+                <div
+                  key={idx}
+                  className="p-3 xs:p-3.5 rounded-lg border border-day-border dark:border-agency-border bg-day-surface/50 dark:bg-agency-surface/30 flex flex-col justify-between"
+                >
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
+                    INSIGHT 0{idx + 1}
+                  </span>
+                  <p className="text-xs text-day-subtext dark:text-agency-subtext leading-relaxed">{finding}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ━━━━━━━━━━━━━━━━━━━━
+          03 — DEFINE
+          ━━━━━━━━━━━━━━━━━━━━ */}
+      <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8">
+          <div className="lg:col-span-4">
+            <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-digitify-purple mb-1.5">
+              <Compass size={13} />
+              <span>03 — DEFINE</span>
+            </div>
+            <h2 className="text-lg xs:text-xl sm:text-2xl font-display font-medium text-black dark:text-white">
+              {sections.define.headline}
+            </h2>
+          </div>
+
+          <div className="lg:col-span-8 space-y-4">
+            <p className="text-xs sm:text-sm md:text-base text-day-subtext dark:text-agency-subtext leading-relaxed">
+              {sections.define.description}
             </p>
 
             <ul className="space-y-2.5 sm:space-y-3 pt-1">
-              {sections.strategy.strategicPillars.map((pillar, idx) => (
+              {sections.define.strategicPillars.map((pillar, idx) => (
                 <li
                   key={idx}
                   className="p-3.5 xs:p-4 rounded-lg border border-day-border dark:border-agency-border bg-day-surface/60 dark:bg-agency-surface/40 flex items-start gap-3"
@@ -161,33 +169,90 @@ export const CaseStudyDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* 04 — CREATIVE DIRECTION */}
+      {/* ━━━━━━━━━━━━━━━━━━━━
+          04 — DESIGN
+          ━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8">
           <div className="lg:col-span-4">
-            <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
-              04 — CREATIVE DIRECTION
-            </span>
+            <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-digitify-purple mb-1.5">
+              <Palette size={13} />
+              <span>04 — DESIGN</span>
+            </div>
             <h2 className="text-lg xs:text-xl sm:text-2xl font-display font-medium text-black dark:text-white">
-              {sections.creativeDirection.headline}
+              {sections.design.headline}
             </h2>
           </div>
 
           <div className="lg:col-span-8 space-y-4">
             <p className="text-xs sm:text-sm md:text-base text-day-subtext dark:text-agency-subtext leading-relaxed">
-              {sections.creativeDirection.description}
+              {sections.design.description}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-1">
-              {sections.creativeDirection.artDirectionNotes.map((note, idx) => (
+              {sections.design.decisions.map((note, idx) => (
                 <div
                   key={idx}
                   className="p-3 xs:p-3.5 rounded-lg border border-day-border dark:border-agency-border bg-day-surface/50 dark:bg-agency-surface/30"
                 >
                   <span className="text-[10px] font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
-                    PRINCIPLE 0{idx + 1}
+                    DECISION 0{idx + 1}
                   </span>
                   <p className="text-xs text-day-subtext dark:text-agency-subtext leading-relaxed">{note}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Design Execution Visual Snapshot */}
+            <div className="pt-2">
+              <div className="rounded-xl overflow-hidden border border-day-border dark:border-agency-border bg-black/95 shadow-sm">
+                <div className="flex items-center justify-between px-3 py-2 border-b border-day-border/60 dark:border-agency-border/60 bg-day-surface/80 dark:bg-black/60 text-[10px] font-mono text-day-muted dark:text-agency-muted">
+                  <span>DESIGN SYSTEM IN ACTION</span>
+                  <span className="text-digitify-purple font-semibold">{study.client}</span>
+                </div>
+                <div className="h-[220px] xs:h-[260px] sm:h-[320px] overflow-hidden">
+                  <img
+                    src={study.galleryImages[1] || study.overviewImage}
+                    alt={`${study.title} Design System Snapshot`}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ━━━━━━━━━━━━━━━━━━━━
+          05 — EXECUTE
+          ━━━━━━━━━━━━━━━━━━━━ */}
+      <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8">
+          <div className="lg:col-span-4">
+            <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-digitify-purple mb-1.5">
+              <Cog size={13} />
+              <span>05 — EXECUTE</span>
+            </div>
+            <h2 className="text-lg xs:text-xl sm:text-2xl font-display font-medium text-black dark:text-white">
+              {sections.execute.headline}
+            </h2>
+          </div>
+
+          <div className="lg:col-span-8 space-y-4">
+            <p className="text-xs sm:text-sm md:text-base text-day-subtext dark:text-agency-subtext leading-relaxed">
+              {sections.execute.description}
+            </p>
+
+            <div className="space-y-2.5 pt-1">
+              {sections.execute.phases.map((phase, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-start gap-3 p-3.5 rounded-lg border border-day-border dark:border-agency-border bg-day-surface/50 dark:bg-agency-surface/30"
+                >
+                  <span className="font-mono text-xs text-digitify-purple shrink-0 mt-0.5 font-semibold">
+                    0{idx + 1}
+                  </span>
+                  <p className="text-xs sm:text-sm text-day-subtext dark:text-agency-subtext leading-relaxed">{phase}</p>
                 </div>
               ))}
             </div>
@@ -195,29 +260,32 @@ export const CaseStudyDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* 05 — EXECUTION */}
+      {/* ━━━━━━━━━━━━━━━━━━━━
+          06 — DELIVER
+          ━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8">
           <div className="lg:col-span-4">
-            <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
-              05 — EXECUTION
-            </span>
+            <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-digitify-purple mb-1.5">
+              <Send size={13} />
+              <span>06 — DELIVER</span>
+            </div>
             <h2 className="text-lg xs:text-xl sm:text-2xl font-display font-medium text-black dark:text-white">
-              {sections.execution.headline}
+              {sections.deliver.headline}
             </h2>
           </div>
 
           <div className="lg:col-span-8 space-y-4">
             <p className="text-xs sm:text-sm md:text-base text-day-subtext dark:text-agency-subtext leading-relaxed">
-              {sections.execution.description}
+              {sections.deliver.description}
             </p>
 
             <div className="p-3.5 xs:p-4 sm:p-5 rounded-lg border border-day-border dark:border-agency-border bg-day-surface/60 dark:bg-agency-surface/40">
               <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-2.5 sm:mb-3">
-                Core Deliverables
+                Shipped Deliverables
               </span>
               <ul className="space-y-2 xs:space-y-2.5">
-                {sections.execution.deliverablesList.map((del, idx) => (
+                {sections.deliver.deliverablesList.map((del, idx) => (
                   <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-day-subtext dark:text-agency-subtext">
                     <CheckCircle2 size={15} className="text-digitify-purple shrink-0 mt-0.5" />
                     <span>{del}</span>
@@ -229,13 +297,16 @@ export const CaseStudyDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* 06 — OUTCOME */}
+      {/* ━━━━━━━━━━━━━━━━━━━━
+          07 — OUTCOME (Factual, tangible takeaways — no fabricated metrics)
+          ━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8">
           <div className="lg:col-span-4">
-            <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
-              06 — OUTCOME
-            </span>
+            <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-digitify-purple mb-1.5">
+              <ShieldCheck size={13} />
+              <span>07 — OUTCOME</span>
+            </div>
             <h2 className="text-lg xs:text-xl sm:text-2xl font-display font-medium text-black dark:text-white">
               {sections.outcome.headline}
             </h2>
@@ -247,12 +318,12 @@ export const CaseStudyDetail: React.FC = () => {
             </p>
 
             <div className="space-y-2 xs:space-y-2.5 pt-1">
-              {sections.outcome.keyTakeaways.map((takeaway, idx) => (
+              {sections.outcome.tangibleTakeaways.map((takeaway, idx) => (
                 <div
                   key={idx}
                   className="flex items-start gap-3 p-3.5 xs:p-4 rounded-lg border border-day-border dark:border-agency-border bg-day-surface/50 dark:bg-agency-surface/30"
                 >
-                  <span className="font-mono text-xs text-digitify-purple shrink-0">
+                  <span className="font-mono text-xs text-digitify-purple shrink-0 font-semibold">
                     [0{idx + 1}]
                   </span>
                   <p className="text-xs sm:text-sm text-black dark:text-white font-medium leading-relaxed">
@@ -265,14 +336,89 @@ export const CaseStudyDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* 07 — GALLERY */}
+      {/* ━━━━━━━━━━━━━━━━━━━━
+          08 — PROJECT SNAPSHOT
+          ━━━━━━━━━━━━━━━━━━━━ */}
+      <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8">
+          <div className="lg:col-span-4">
+            <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-digitify-purple mb-1.5">
+              <Layers size={13} />
+              <span>08 — PROJECT SNAPSHOT</span>
+            </div>
+            <h2 className="text-lg xs:text-xl sm:text-2xl font-display font-medium text-black dark:text-white">
+              Summary Specifications
+            </h2>
+          </div>
+
+          <div className="lg:col-span-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 sm:p-6 rounded-xl border border-day-border dark:border-agency-border bg-day-surface/70 dark:bg-agency-surface/40">
+              {/* Client */}
+              <div>
+                <span className="text-[10px] font-mono text-day-muted dark:text-agency-muted uppercase tracking-widest block">
+                  CLIENT / PROJECT
+                </span>
+                <span className="text-sm font-display font-medium text-black dark:text-white mt-1 block">
+                  {sections.snapshot.client}
+                </span>
+              </div>
+
+              {/* Industry */}
+              <div>
+                <span className="text-[10px] font-mono text-day-muted dark:text-agency-muted uppercase tracking-widest block">
+                  INDUSTRY
+                </span>
+                <span className="text-sm font-mono text-black dark:text-white mt-1 block">
+                  {sections.snapshot.industry}
+                </span>
+              </div>
+
+              {/* Services */}
+              <div className="sm:col-span-2 pt-2 border-t border-day-border/60 dark:border-agency-border/60">
+                <span className="text-[10px] font-mono text-day-muted dark:text-agency-muted uppercase tracking-widest block mb-1.5">
+                  SERVICES DELIVERED
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {sections.snapshot.services.map((svc, idx) => (
+                    <span
+                      key={idx}
+                      className="text-xs font-mono px-2.5 py-1 rounded bg-day-surface dark:bg-agency-surface border border-day-border dark:border-agency-border text-black dark:text-white"
+                    >
+                      {svc}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Deliverables */}
+              <div className="sm:col-span-2 pt-2 border-t border-day-border/60 dark:border-agency-border/60">
+                <span className="text-[10px] font-mono text-day-muted dark:text-agency-muted uppercase tracking-widest block mb-1.5">
+                  KEY DELIVERABLES
+                </span>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono text-day-subtext dark:text-agency-subtext">
+                  {sections.snapshot.deliverables.map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-digitify-purple shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ━━━━━━━━━━━━━━━━━━━━
+          PROJECT VISUAL GALLERY
+          ━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
         <div className="mb-5 sm:mb-6">
           <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
-            07 — GALLERY
+            VISUAL DOCUMENTATION
           </span>
           <h2 className="text-lg xs:text-xl sm:text-2xl font-display font-medium text-black dark:text-white">
-            PROJECT VISUAL SYSTEM
+            PROJECT SYSTEM PREVIEW
           </h2>
         </div>
 
@@ -287,18 +433,20 @@ export const CaseStudyDetail: React.FC = () => {
               <img
                 src={img}
                 alt={`${study.title} visual ${idx + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full min-h-[260px] sm:min-h-[380px] max-h-[500px] object-cover object-top"
               />
             </div>
           ))}
         </div>
       </section>
 
-      {/* 08 — NEXT PROJECT */}
+      {/* ━━━━━━━━━━━━━━━━━━━━
+          NEXT CASE STUDY
+          ━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
         <div className="flex flex-col items-center text-center p-5 xs:p-6 sm:p-12 rounded-xl border border-day-border dark:border-agency-border bg-day-surface/80 dark:bg-agency-surface/50">
           <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted mb-1.5">
-            08 — NEXT CASE STUDY
+            NEXT CASE STUDY
           </span>
           <h3 className="text-lg xs:text-xl sm:text-3xl md:text-4xl font-display font-medium text-black dark:text-white mb-3 sm:mb-4">
             {study.nextTitle}
@@ -307,7 +455,7 @@ export const CaseStudyDetail: React.FC = () => {
             to={`/case-studies/${study.nextSlug}`}
             className="w-full sm:w-auto justify-center inline-flex items-center gap-2.5 px-6 py-3.5 sm:py-3 rounded-full bg-black text-white dark:bg-white dark:text-black text-xs uppercase tracking-widest font-semibold hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shadow-sm"
           >
-            <span>View Next Project</span>
+            <span>View Case Study</span>
             <ArrowRight size={14} />
           </Link>
         </div>

@@ -51,7 +51,7 @@ export const CaseStudies: React.FC = () => {
                 </p>
 
                 <p className="text-xs sm:text-sm text-day-subtext dark:text-agency-subtext line-clamp-2 leading-relaxed">
-                  {study.sections.intro.description}
+                  {study.sections.challenge.description}
                 </p>
 
                 <div className="flex flex-wrap gap-1.5 xs:gap-2 pt-1">
@@ -72,7 +72,7 @@ export const CaseStudies: React.FC = () => {
                   <img
                     src={study.overviewImage}
                     alt={study.title}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute bottom-2.5 right-2.5 xs:bottom-3 xs:right-3 bg-black/85 backdrop-blur-sm px-2.5 py-1 rounded text-[11px] xs:text-xs font-mono text-white flex items-center gap-1.5 shadow-sm">
                     <span>Read Case Study</span>

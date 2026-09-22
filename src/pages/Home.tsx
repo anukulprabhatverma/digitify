@@ -82,14 +82,14 @@ export const Home: React.FC = () => {
           {/* Right Column: Flagship Feature Showcase Card */}
           <div className="lg:col-span-6 w-full">
             <Link
-              to="/case-studies/brand-campaign"
+              to="/case-studies/coolbee-store"
               className="group block relative rounded-xl border border-day-border dark:border-agency-border overflow-hidden bg-day-surface dark:bg-agency-surface transition-colors duration-200"
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-black">
                 <img
-                  src="/images/projects/project-01.svg"
-                  alt="Featured Case Study Placeholder"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  src="/images/projects/coolbee.png"
+                  alt="Featured Case Study - Coolbee Store"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute top-3 xs:top-4 right-3 xs:right-4">
                   <span className="text-[9px] xs:text-[10px] font-mono tracking-widest uppercase px-2.5 xs:px-3 py-1 rounded-full bg-white text-black font-semibold shadow-md">
@@ -100,10 +100,10 @@ export const Home: React.FC = () => {
               <div className="p-3.5 xs:p-4 sm:p-5 border-t border-day-border dark:border-agency-border flex items-center justify-between gap-3">
                 <div className="min-w-0">
                   <h4 className="text-sm xs:text-base sm:text-lg font-display font-medium text-black dark:text-white group-hover:text-digitify-purple transition-colors truncate">
-                    Brand Campaign Framework
+                    Coolbee Store
                   </h4>
                   <p className="text-[11px] xs:text-xs font-mono text-day-muted dark:text-agency-muted mt-0.5 truncate">
-                    Digital Strategy · Creative · Social Media
+                    Website · Social Media · Digital Marketing
                   </p>
                 </div>
                 <div className="w-8 h-8 rounded-full border border-day-border dark:border-agency-border flex items-center justify-center text-day-muted dark:text-agency-muted group-hover:text-black dark:group-hover:text-white group-hover:border-black dark:group-hover:border-white transition-all shrink-0">

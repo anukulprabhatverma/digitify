@@ -74,10 +74,10 @@ export const PrivacyPolicy: React.FC = () => {
           <p>
             If you wish to review, update, or request the deletion of any contact data submitted through our inquiry forms, please contact us at{' '}
             <a
-              href="mailto:contact@yourdomain.com"
+              href="mailto:anukulprabhatverma@gmail.com"
               className="text-black dark:text-white hover:text-digitify-purple underline font-mono"
             >
-              contact@yourdomain.com
+              anukulprabhatverma@gmail.com
             </a>
             .
           </p>

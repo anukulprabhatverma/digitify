@@ -106,8 +106,10 @@ export const TeamMemberDetail: React.FC = () => {
               {member.name}
             </h1>
 
-            <p className="text-xs xs:text-sm sm:text-base font-mono uppercase tracking-widest text-day-subtext dark:text-agency-subtext">
-              {member.role} · DIGITIFY
+            <p className="text-xs xs:text-sm sm:text-base font-mono uppercase tracking-widest text-day-subtext dark:text-agency-subtext flex flex-wrap items-center gap-2">
+              <span className="text-black dark:text-white font-semibold">{member.role}</span>
+              <span className="text-day-border dark:text-agency-border">·</span>
+              <span className="text-day-muted dark:text-agency-muted">{member.specialisation}</span>
             </p>
           </div>
 

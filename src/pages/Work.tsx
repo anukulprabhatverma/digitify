@@ -11,26 +11,24 @@ export const Work: React.FC = () => {
 
   const categories: FilterCategory[] = [
     'All',
-    'Branding',
-    'Social Media',
+    'Website',
     'Digital Marketing',
-    'Graphic Design',
-    'Web Design',
+    'Social Media',
   ];
 
-  // Calculate project counts for each category
+  // Calculate project counts for each category (supports multi-category assignments)
   const categoryCounts = categories.reduce<Record<FilterCategory, number>>((acc, cat) => {
     if (cat === 'All') {
       acc[cat] = projectsData.length;
     } else {
-      acc[cat] = projectsData.filter((p) => p.category === cat).length;
+      acc[cat] = projectsData.filter((p) => p.categories.includes(cat as ProjectCategory)).length;
     }
     return acc;
   }, {} as Record<FilterCategory, number>);
 
   const filteredProjects = projectsData.filter((project) => {
     if (activeFilter === 'All') return true;
-    return project.category === activeFilter;
+    return project.categories.includes(activeFilter as ProjectCategory);
   });
 
   return (
@@ -47,7 +45,7 @@ export const Work: React.FC = () => {
         </h1>
 
         <p className="text-xs sm:text-sm md:text-base text-day-subtext dark:text-agency-subtext max-w-2xl pt-2 border-t border-day-border dark:border-agency-border leading-relaxed">
-          A curated visual portfolio index of strategic frameworks, campaign blueprints, and digital flagships. Scroll directly inside any card to explore project deliverables.
+          A visual portfolio index of Digitify’s actual work across web flagships, digital campaigns, and social storytelling. Each preview is contained directly within the card for smooth internal exploration.
         </p>
       </section>
 
@@ -64,7 +62,7 @@ export const Work: React.FC = () => {
             </span>
           </div>
 
-          {/* Smooth horizontal scroll pill bar on mobile, full stack on desktop */}
+          {/* Smooth horizontal scroll pill bar on mobile, vertical stack on desktop */}
           <div className="flex lg:flex-col overflow-x-auto no-scrollbar gap-2 py-1 -mx-3.5 px-3.5 xs:-mx-4 xs:px-4 sm:mx-0 sm:px-0 sm:flex-wrap">
             {categories.map((filter) => {
               const isActive = activeFilter === filter;
@@ -117,7 +115,7 @@ export const Work: React.FC = () => {
       {/* Note & Distinction between Work & Case Studies */}
       <div className="p-3.5 xs:p-4 rounded-xl border border-day-border/80 dark:border-agency-border/60 bg-day-surface/50 dark:bg-agency-surface/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-3 text-xs font-mono text-day-muted dark:text-agency-muted">
         <span>
-          Looking for full strategic write-ups and behind-the-scenes metrics?
+          Looking for strategic case study deep-dives and delivery breakdowns?
         </span>
         <Link
           to="/case-studies"
