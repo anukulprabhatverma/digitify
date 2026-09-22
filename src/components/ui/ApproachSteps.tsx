@@ -41,14 +41,14 @@ const steps: Step[] = [
 
 export const ApproachSteps: React.FC = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5">
       {steps.map((step, idx) => (
         <div
           key={step.number}
-          className="relative overflow-hidden p-6 sm:p-7 rounded-xl border border-day-border dark:border-agency-border bg-day-surface/60 dark:bg-agency-surface/40 hover:bg-day-surface dark:hover:bg-agency-surface/70 hover:border-digitify-purple/40 dark:hover:border-digitify-purple/40 motion-safe:hover:-translate-y-1 transition-all duration-350 ease-out flex flex-col justify-between space-y-6 group cursor-default select-none motion-reduce:transform-none"
+          className="relative overflow-hidden p-5 xs:p-6 sm:p-7 rounded-xl border border-day-border dark:border-agency-border bg-day-surface/60 dark:bg-agency-surface/40 hover:bg-day-surface dark:hover:bg-agency-surface/70 hover:border-digitify-purple/40 dark:hover:border-digitify-purple/40 motion-safe:hover:-translate-y-1 transition-all duration-350 ease-out flex flex-col justify-between space-y-4 sm:space-y-6 group cursor-default select-none motion-reduce:transform-none"
         >
           {/* Top Bar: Number, Tagline & Minimal Indicator Arrow */}
-          <div className="flex items-center justify-between border-b border-day-border/60 dark:border-agency-border/60 pb-3">
+          <div className="flex items-center justify-between border-b border-day-border/60 dark:border-agency-border/60 pb-2.5 sm:pb-3">
             <span className="font-mono text-xs text-day-muted dark:text-agency-muted group-hover:text-digitify-purple group-hover:translate-x-1 transition-all duration-350 ease-out motion-reduce:transform-none">
               {step.number}
             </span>
@@ -64,12 +64,12 @@ export const ApproachSteps: React.FC = () => {
             </div>
           </div>
 
-          {/* Middle: Title with upward shift & Description fading into focus */}
+          {/* Middle: Title with upward shift & Description */}
           <div>
-            <h3 className="text-xl sm:text-2xl font-display font-medium tracking-tight text-black dark:text-white mb-2 transition-transform duration-350 ease-out group-hover:-translate-y-0.5 sm:group-hover:-translate-y-1 motion-reduce:transform-none">
+            <h3 className="text-lg xs:text-xl sm:text-2xl font-display font-medium tracking-tight text-black dark:text-white mb-1.5 sm:mb-2 transition-transform duration-350 ease-out group-hover:-translate-y-0.5 sm:group-hover:-translate-y-1 motion-reduce:transform-none">
               {step.title}
             </h3>
-            <p className="text-xs sm:text-sm text-day-subtext/85 dark:text-agency-subtext/85 group-hover:text-day-subtext dark:group-hover:text-agency-subtext group-hover:opacity-100 transition-all duration-350 ease-out leading-relaxed">
+            <p className="text-xs sm:text-sm text-day-subtext/90 dark:text-agency-subtext/90 group-hover:text-day-subtext dark:group-hover:text-agency-subtext group-hover:opacity-100 transition-all duration-350 ease-out leading-relaxed">
               {step.description}
             </p>
           </div>

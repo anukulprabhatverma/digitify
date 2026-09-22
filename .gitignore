@@ -36,8 +36,7 @@ chrome-user-data
 .claude/worktrees
 
 packages/react-devtools-core/dist
-packages/react-devtools-extensions/chrome/build
-packages/react-devtools-extensions/chrome/*.crx
+npmpackages/react-devtools-extensions/chrome/*.crx
 packages/react-devtools-extensions/chrome/*.pem
 packages/react-devtools-extensions/firefox/build
 packages/react-devtools-extensions/firefox/*.xpi

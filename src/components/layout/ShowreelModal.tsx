@@ -34,23 +34,23 @@ export const ShowreelModal: React.FC<ShowreelModalProps> = ({ isOpen, onClose })
       role="dialog"
       aria-modal="true"
       aria-label="Digitify Agency Showreel"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-6 md:p-12 animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-2.5 xs:p-4 sm:p-6 md:p-12 animate-fadeIn safe-pt safe-pb"
     >
       <div className="relative w-full max-w-5xl bg-[#0d0d10] border border-agency-border rounded-xl overflow-hidden shadow-2xl flex flex-col">
         {/* Modal Bar */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-agency-border bg-[#08080a]">
-          <div className="flex items-center gap-3">
-            <span className="h-2 w-2 rounded-full bg-digitify-purple animate-ping" />
-            <span className="text-xs uppercase tracking-widest text-agency-muted font-mono">
+        <div className="flex items-center justify-between px-3.5 xs:px-6 py-3 xs:py-4 border-b border-agency-border bg-[#08080a]">
+          <div className="flex items-center gap-2 xs:gap-3">
+            <span className="h-2 w-2 rounded-full bg-digitify-purple animate-ping shrink-0" />
+            <span className="text-[11px] xs:text-xs uppercase tracking-widest text-agency-muted font-mono truncate">
               DIGITIFY SHOWREEL · 2026 EDITION
             </span>
           </div>
           <button
             onClick={onClose}
-            className="text-agency-subtext hover:text-white transition-colors p-1 rounded-md hover:bg-agency-elevated cursor-pointer"
+            className="text-agency-subtext hover:text-white transition-colors w-9 h-9 rounded-full flex items-center justify-center hover:bg-agency-elevated cursor-pointer active:scale-95 shrink-0"
             aria-label="Close Showreel"
           >
-            <X size={20} />
+            <X size={18} />
           </button>
         </div>
 

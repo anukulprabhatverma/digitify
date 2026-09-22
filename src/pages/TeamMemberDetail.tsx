@@ -23,27 +23,27 @@ export const TeamMemberDetail: React.FC = () => {
       : teamMembers[0];
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 py-8 sm:py-12 flex flex-col space-y-12 sm:space-y-16 animate-fadeIn">
+    <div className="w-full max-w-7xl mx-auto px-3.5 xs:px-4 sm:px-8 md:px-12 py-5 xs:py-8 sm:py-12 flex flex-col space-y-8 xs:space-y-12 sm:space-y-16 animate-fadeIn">
       {/* Top Breadcrumb / Back Navigation */}
-      <div className="flex items-center justify-between border-b border-day-border dark:border-agency-border pb-4">
+      <div className="flex items-center justify-between border-b border-day-border dark:border-agency-border pb-3.5 sm:pb-4">
         <Link
           to="/about"
-          className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-day-subtext dark:text-agency-subtext hover:text-black dark:hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-day-subtext dark:text-agency-subtext hover:text-black dark:hover:text-white transition-colors py-1"
         >
           <ArrowLeft size={14} />
           <span>Back to Team</span>
         </Link>
 
-        <div className="flex items-center gap-2 text-xs font-mono text-day-muted dark:text-agency-muted">
+        <div className="flex items-center gap-2 text-[11px] xs:text-xs font-mono text-day-muted dark:text-agency-muted">
           <span>MEMBER {member.number} OF {String(teamMembers.length).padStart(2, '0')}</span>
         </div>
       </div>
 
       {/* Main Profile Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 xs:gap-8 lg:gap-14 items-start">
         {/* Left Column: Editorial Photo Placeholder */}
         <div className="lg:col-span-5 flex flex-col space-y-4">
-          <div className="relative aspect-[4/5] w-full rounded-2xl border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface overflow-hidden flex flex-col items-center justify-between p-6 sm:p-8">
+          <div className="relative aspect-square xs:aspect-[4/5] w-full rounded-xl sm:rounded-2xl border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface overflow-hidden flex flex-col items-center justify-between p-4 xs:p-6 sm:p-8">
             {/* Top Badge */}
             <div className="w-full flex items-center justify-between">
               <span className="text-[11px] font-mono uppercase tracking-wider text-day-muted dark:text-agency-muted">
@@ -56,8 +56,8 @@ export const TeamMemberDetail: React.FC = () => {
 
             {/* Central Monogram Placeholder Graphic */}
             <div className="flex flex-col items-center justify-center text-center my-auto">
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-day-border dark:border-agency-border bg-white dark:bg-[#08080a] flex items-center justify-center mb-4 shadow-sm">
-                <span className="text-3xl sm:text-4xl font-display font-medium tracking-tight text-black dark:text-white">
+              <div className="w-20 h-20 xs:w-24 xs:h-24 sm:w-28 sm:h-28 rounded-full border border-day-border dark:border-agency-border bg-white dark:bg-[#08080a] flex items-center justify-center mb-3 sm:mb-4 shadow-sm">
+                <span className="text-2xl xs:text-3xl sm:text-4xl font-display font-medium tracking-tight text-black dark:text-white">
                   {member.initials}
                 </span>
               </div>
@@ -78,14 +78,14 @@ export const TeamMemberDetail: React.FC = () => {
           </div>
 
           {/* Quick Connect Pill */}
-          <div className="p-4 rounded-xl border border-day-border dark:border-agency-border bg-day-surface/60 dark:bg-agency-surface/40 flex items-center justify-between">
+          <div className="p-3.5 xs:p-4 rounded-xl border border-day-border dark:border-agency-border bg-day-surface/60 dark:bg-agency-surface/40 flex items-center justify-between">
             <div className="flex items-center gap-2 text-xs font-mono text-day-subtext dark:text-agency-subtext">
               <span className="h-1.5 w-1.5 rounded-full bg-digitify-purple animate-pulse" />
               <span>DIGITIFY CORE TEAM</span>
             </div>
             <Link
               to="/contact"
-              className="text-xs font-mono uppercase tracking-wider text-black dark:text-white hover:text-digitify-purple flex items-center gap-1 transition-colors"
+              className="text-xs font-mono uppercase tracking-wider text-black dark:text-white hover:text-digitify-purple flex items-center gap-1 transition-colors py-1"
             >
               <span>Connect</span>
               <ArrowUpRight size={12} />
@@ -94,39 +94,39 @@ export const TeamMemberDetail: React.FC = () => {
         </div>
 
         {/* Right Column: Name, Role, Intro, Responsibilities & Work Info */}
-        <div className="lg:col-span-7 flex flex-col space-y-8">
+        <div className="lg:col-span-7 flex flex-col space-y-6 xs:space-y-8">
           {/* Header Identity */}
-          <div className="space-y-3">
+          <div className="space-y-2.5 xs:space-y-3">
             <div className="inline-flex items-center gap-2 text-xs font-mono text-day-muted dark:text-agency-muted uppercase tracking-widest">
               <span className="h-1.5 w-1.5 rounded-full bg-digitify-purple" />
               <span>{member.category}</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-medium tracking-tightest text-black dark:text-white leading-[1.05]">
+            <h1 className="text-2xl xs:text-4xl sm:text-5xl md:text-6xl font-display font-medium tracking-tightest text-black dark:text-white leading-[1.05]">
               {member.name}
             </h1>
 
-            <p className="text-sm sm:text-base font-mono uppercase tracking-widest text-day-subtext dark:text-agency-subtext">
+            <p className="text-xs xs:text-sm sm:text-base font-mono uppercase tracking-widest text-day-subtext dark:text-agency-subtext">
               {member.role} · DIGITIFY
             </p>
           </div>
 
           {/* Short Professional Introduction */}
-          <div className="border-t border-day-border dark:border-agency-border pt-6">
+          <div className="border-t border-day-border dark:border-agency-border pt-5 xs:pt-6">
             <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-2">
               OVERVIEW
             </span>
-            <p className="text-base sm:text-lg md:text-xl text-black dark:text-white font-normal leading-relaxed">
+            <p className="text-sm xs:text-base sm:text-lg md:text-xl text-black dark:text-white font-normal leading-relaxed">
               {member.shortIntro}
             </p>
           </div>
 
           {/* Key Responsibilities */}
-          <div className="border-t border-day-border dark:border-agency-border pt-6">
+          <div className="border-t border-day-border dark:border-agency-border pt-5 xs:pt-6">
             <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-3">
               PRIMARY RESPONSIBILITIES
             </span>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
               {member.responsibilities.map((resp, idx) => (
                 <div
                   key={idx}
@@ -142,7 +142,7 @@ export const TeamMemberDetail: React.FC = () => {
           </div>
 
           {/* Expertise Tags */}
-          <div className="border-t border-day-border dark:border-agency-border pt-6">
+          <div className="border-t border-day-border dark:border-agency-border pt-5 xs:pt-6">
             <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-3">
               DISCIPLINARY EXPERTISE
             </span>
@@ -150,7 +150,7 @@ export const TeamMemberDetail: React.FC = () => {
               {member.expertise.map((skill, idx) => (
                 <span
                   key={idx}
-                  className="text-xs font-mono uppercase tracking-wider px-3 py-1.5 rounded-full border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface text-black dark:text-white"
+                  className="text-[11px] xs:text-xs font-mono uppercase tracking-wider px-2.5 xs:px-3 py-1.5 rounded-full border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface text-black dark:text-white"
                 >
                   {skill}
                 </span>
@@ -159,11 +159,11 @@ export const TeamMemberDetail: React.FC = () => {
           </div>
 
           {/* Minimal Project / Work-Related Information Section */}
-          <div className="border-t border-day-border dark:border-agency-border pt-6">
+          <div className="border-t border-day-border dark:border-agency-border pt-5 xs:pt-6">
             <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-2">
               PROJECT & CLIENT ENGAGEMENT
             </span>
-            <div className="p-5 sm:p-6 rounded-xl border border-day-border dark:border-agency-border bg-day-surface/50 dark:bg-agency-surface/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="p-4 xs:p-5 sm:p-6 rounded-xl border border-day-border dark:border-agency-border bg-day-surface/50 dark:bg-agency-surface/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <h4 className="text-sm sm:text-base font-display font-medium text-black dark:text-white mb-1">
                   Cross-Discipline Project Involvement
@@ -174,7 +174,7 @@ export const TeamMemberDetail: React.FC = () => {
               </div>
               <Link
                 to="/work"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-day-border dark:border-agency-border text-xs font-mono uppercase tracking-wider hover:border-black dark:hover:border-white transition-colors shrink-0"
+                className="w-full sm:w-auto justify-center inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-day-border dark:border-agency-border text-xs font-mono uppercase tracking-wider hover:border-black dark:hover:border-white transition-colors shrink-0"
               >
                 <span>View Work</span>
                 <ArrowRight size={13} />
@@ -185,13 +185,13 @@ export const TeamMemberDetail: React.FC = () => {
       </div>
 
       {/* Bottom Peer Navigation */}
-      <div className="border-t border-day-border dark:border-agency-border pt-8 flex items-center justify-between">
+      <div className="border-t border-day-border dark:border-agency-border pt-6 sm:pt-8 flex items-center justify-between gap-2">
         <Link
           to={`/team/${prevMember.id}`}
-          className="group flex items-center gap-3 text-left"
+          className="group flex items-center gap-2.5 sm:gap-3 text-left py-2"
         >
-          <div className="w-8 h-8 rounded-full border border-day-border dark:border-agency-border flex items-center justify-center text-day-muted dark:text-agency-muted group-hover:border-black dark:group-hover:border-white group-hover:text-black dark:group-hover:text-white transition-all">
-            <ArrowLeft size={14} />
+          <div className="w-10 h-10 sm:w-9 sm:h-9 rounded-full border border-day-border dark:border-agency-border flex items-center justify-center text-day-muted dark:text-agency-muted group-hover:border-black dark:group-hover:border-white group-hover:text-black dark:group-hover:text-white transition-all shrink-0">
+            <ArrowLeft size={15} />
           </div>
           <div className="hidden sm:block">
             <span className="text-[10px] font-mono text-day-muted dark:text-agency-muted block">
@@ -205,14 +205,14 @@ export const TeamMemberDetail: React.FC = () => {
 
         <Link
           to="/about"
-          className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted hover:text-black dark:hover:text-white transition-colors"
+          className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted hover:text-black dark:hover:text-white transition-colors py-2 px-1 text-center"
         >
-          View All Members
+          All Members
         </Link>
 
         <Link
           to={`/team/${nextMember.id}`}
-          className="group flex items-center gap-3 text-right"
+          className="group flex items-center gap-2.5 sm:gap-3 text-right py-2"
         >
           <div className="hidden sm:block">
             <span className="text-[10px] font-mono text-day-muted dark:text-agency-muted block">
@@ -222,8 +222,8 @@ export const TeamMemberDetail: React.FC = () => {
               {nextMember.name}
             </span>
           </div>
-          <div className="w-8 h-8 rounded-full border border-day-border dark:border-agency-border flex items-center justify-center text-day-muted dark:text-agency-muted group-hover:border-black dark:group-hover:border-white group-hover:text-black dark:group-hover:text-white transition-all">
-            <ArrowRight size={14} />
+          <div className="w-10 h-10 sm:w-9 sm:h-9 rounded-full border border-day-border dark:border-agency-border flex items-center justify-center text-day-muted dark:text-agency-muted group-hover:border-black dark:group-hover:border-white group-hover:text-black dark:group-hover:text-white transition-all shrink-0">
+            <ArrowRight size={15} />
           </div>
         </Link>
       </div>

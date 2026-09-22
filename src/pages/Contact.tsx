@@ -53,28 +53,28 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 py-8 sm:py-12 flex flex-col space-y-12 sm:space-y-16">
+    <div className="w-full max-w-7xl mx-auto px-3.5 xs:px-4 sm:px-8 md:px-12 py-6 xs:py-8 sm:py-12 flex flex-col space-y-8 sm:space-y-16">
       {/* Header */}
-      <section className="flex flex-col space-y-6">
+      <section className="flex flex-col space-y-4">
         <div className="flex items-center gap-2 text-xs font-mono text-day-muted dark:text-agency-muted uppercase tracking-widest">
           <span className="h-1.5 w-1.5 rounded-full bg-digitify-purple" />
           <span>Project Inquiries</span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium tracking-tightest leading-[1] text-black dark:text-white">
+        <h1 className="text-2xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium tracking-tightest leading-[1] text-black dark:text-white">
           LET’S TALK<span className="text-digitify-purple">.</span>
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl text-day-subtext dark:text-agency-subtext leading-relaxed max-w-2xl pt-2 border-t border-day-border dark:border-agency-border">
+        <p className="text-sm xs:text-base sm:text-lg md:text-xl text-day-subtext dark:text-agency-subtext leading-relaxed max-w-2xl pt-2 border-t border-day-border dark:border-agency-border">
           Tell us what you’re building, what you’re solving, or where you want to go.
         </p>
       </section>
 
       {/* Main Grid: Form & Contact Meta */}
-      <section className="border-t border-day-border dark:border-agency-border pt-8 sm:pt-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+      <section className="border-t border-day-border dark:border-agency-border pt-6 sm:pt-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
           {/* Left Column: Interactive Inquiry Form */}
-          <div className="lg:col-span-8 bg-day-surface dark:bg-agency-surface border border-day-border dark:border-agency-border rounded-xl p-5 sm:p-8">
+          <div className="lg:col-span-8 bg-day-surface dark:bg-agency-surface border border-day-border dark:border-agency-border rounded-xl p-4 xs:p-6 sm:p-8">
             {isSubmitted ? (
               <div className="py-12 text-center flex flex-col items-center space-y-3">
                 <div className="w-12 h-12 rounded-full bg-digitify-purple/15 border border-digitify-purple flex items-center justify-center text-digitify-purple mb-1">
@@ -98,13 +98,13 @@ export const Contact: React.FC = () => {
                       message: '',
                     });
                   }}
-                  className="mt-4 px-5 py-2 rounded-full border border-day-border dark:border-agency-border text-xs uppercase tracking-widest text-black dark:text-white hover:bg-day-elevated dark:hover:bg-agency-elevated transition-colors cursor-pointer"
+                  className="mt-4 px-5 py-2.5 rounded-full border border-day-border dark:border-agency-border text-xs uppercase tracking-widest text-black dark:text-white hover:bg-day-elevated dark:hover:bg-agency-elevated transition-colors cursor-pointer active:scale-95"
                 >
                   Send Another Message
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
                 {/* Basic Fields */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div className="space-y-1.5">
@@ -123,7 +123,7 @@ export const Contact: React.FC = () => {
                       onChange={(e) =>
                         setFormData({ ...formData, name: e.target.value })
                       }
-                      className="w-full bg-white dark:bg-[#0d0d10] border border-day-border dark:border-agency-border rounded-lg px-3.5 py-2.5 text-sm text-black dark:text-white placeholder-day-muted/60 dark:placeholder-agency-muted/60 focus:outline-none focus:border-black dark:focus:border-white transition-colors"
+                      className="w-full bg-white dark:bg-[#0d0d10] border border-day-border dark:border-agency-border rounded-lg px-3.5 py-2.5 text-base sm:text-sm text-black dark:text-white placeholder-day-muted/60 dark:placeholder-agency-muted/60 focus:outline-none focus:border-black dark:focus:border-white transition-colors"
                     />
                   </div>
 
@@ -143,7 +143,7 @@ export const Contact: React.FC = () => {
                       onChange={(e) =>
                         setFormData({ ...formData, email: e.target.value })
                       }
-                      className="w-full bg-white dark:bg-[#0d0d10] border border-day-border dark:border-agency-border rounded-lg px-3.5 py-2.5 text-sm text-black dark:text-white placeholder-day-muted/60 dark:placeholder-agency-muted/60 focus:outline-none focus:border-black dark:focus:border-white transition-colors"
+                      className="w-full bg-white dark:bg-[#0d0d10] border border-day-border dark:border-agency-border rounded-lg px-3.5 py-2.5 text-base sm:text-sm text-black dark:text-white placeholder-day-muted/60 dark:placeholder-agency-muted/60 focus:outline-none focus:border-black dark:focus:border-white transition-colors"
                     />
                   </div>
                 </div>
@@ -163,7 +163,7 @@ export const Contact: React.FC = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, company: e.target.value })
                     }
-                    className="w-full bg-white dark:bg-[#0d0d10] border border-day-border dark:border-agency-border rounded-lg px-3.5 py-2.5 text-sm text-black dark:text-white placeholder-day-muted/60 dark:placeholder-agency-muted/60 focus:outline-none focus:border-black dark:focus:border-white transition-colors"
+                    className="w-full bg-white dark:bg-[#0d0d10] border border-day-border dark:border-agency-border rounded-lg px-3.5 py-2.5 text-base sm:text-sm text-black dark:text-white placeholder-day-muted/60 dark:placeholder-agency-muted/60 focus:outline-none focus:border-black dark:focus:border-white transition-colors"
                   />
                 </div>
 
@@ -172,7 +172,7 @@ export const Contact: React.FC = () => {
                   <label className="block text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted">
                     Project Type (Select All Applicable)
                   </label>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 xs:gap-2">
                     {projectTypeOptions.map((type) => {
                       const isSelected = formData.projectTypes.includes(type);
                       return (
@@ -180,7 +180,7 @@ export const Contact: React.FC = () => {
                           key={type}
                           type="button"
                           onClick={() => toggleProjectType(type)}
-                          className={`px-3 py-1.5 rounded-full text-xs font-mono transition-all cursor-pointer ${
+                          className={`px-3 py-2 rounded-full text-xs font-mono transition-all cursor-pointer active:scale-95 ${
                             isSelected
                               ? 'bg-black text-white dark:bg-white dark:text-black font-semibold'
                               : 'bg-white dark:bg-agency-surface text-day-subtext dark:text-agency-subtext border border-day-border dark:border-agency-border hover:border-black dark:hover:border-white/40'
@@ -198,7 +198,7 @@ export const Contact: React.FC = () => {
                   <label className="block text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted">
                     Estimated Budget (INR)
                   </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 xs:gap-2.5">
                     {budgetOptions.map((b) => {
                       const isSelected = formData.budget === b;
                       return (
@@ -206,7 +206,7 @@ export const Contact: React.FC = () => {
                           key={b}
                           type="button"
                           onClick={() => setFormData({ ...formData, budget: b })}
-                          className={`py-2.5 px-3 rounded-lg text-xs font-mono text-center transition-all border cursor-pointer ${
+                          className={`py-2.5 px-2 xs:px-3 rounded-lg text-xs font-mono text-center transition-all border cursor-pointer active:scale-95 ${
                             isSelected
                               ? 'bg-black text-white dark:bg-white dark:text-black font-semibold border-black dark:border-white'
                               : 'bg-white dark:bg-[#0d0d10] text-day-subtext dark:text-agency-subtext border-day-border dark:border-agency-border hover:border-black dark:hover:border-white/40'
@@ -236,16 +236,16 @@ export const Contact: React.FC = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    className="w-full bg-white dark:bg-[#0d0d10] border border-day-border dark:border-agency-border rounded-lg px-3.5 py-2.5 text-sm text-black dark:text-white placeholder-day-muted/60 dark:placeholder-agency-muted/60 focus:outline-none focus:border-black dark:focus:border-white transition-colors"
+                    className="w-full bg-white dark:bg-[#0d0d10] border border-day-border dark:border-agency-border rounded-lg px-3.5 py-2.5 text-base sm:text-sm text-black dark:text-white placeholder-day-muted/60 dark:placeholder-agency-muted/60 focus:outline-none focus:border-black dark:focus:border-white transition-colors"
                   ></textarea>
                 </div>
 
                 {/* Submit Action */}
-                <div>
+                <div className="pt-1">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3 rounded-full bg-black text-white dark:bg-white dark:text-black text-xs uppercase tracking-widest font-semibold hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all disabled:opacity-50 cursor-pointer shadow-sm"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-black text-white dark:bg-white dark:text-black text-xs uppercase tracking-widest font-semibold hover:bg-neutral-800 dark:hover:bg-neutral-200 active:scale-95 transition-all disabled:opacity-50 cursor-pointer shadow-sm"
                   >
                     <span>{isSubmitting ? 'Submitting...' : 'Send Enquiry'}</span>
                     <ArrowRight size={14} />

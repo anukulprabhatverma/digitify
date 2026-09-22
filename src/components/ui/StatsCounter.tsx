@@ -98,7 +98,7 @@ export const StatsCounter: React.FC<StatsCounterProps> = ({ stats }) => {
 
   return (
     <div ref={containerRef} className="w-full">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         {stats.map((stat, idx) => {
           const isNumeric = stat.numericValue !== null;
           const currentValue = isNumeric ? (counts[stat.id] ?? 0) : null;
@@ -109,11 +109,11 @@ export const StatsCounter: React.FC<StatsCounterProps> = ({ stats }) => {
           return (
             <div
               key={stat.id}
-              className="p-5 sm:p-7 rounded-xl border border-day-border dark:border-agency-border bg-day-surface/70 dark:bg-agency-surface/50 flex flex-col justify-between space-y-4 transition-all duration-300 hover:border-black/30 dark:hover:border-white/30"
+              className="p-3.5 xs:p-4 sm:p-6 md:p-7 rounded-xl border border-day-border dark:border-agency-border bg-day-surface/70 dark:bg-agency-surface/50 flex flex-col justify-between space-y-3 sm:space-y-4 transition-all duration-300 hover:border-black/30 dark:hover:border-white/30"
             >
               {/* Top Indicator */}
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted">
+                <span className="text-[9px] xs:text-[10px] font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted">
                   0{idx + 1} // METRIC
                 </span>
                 <span className="h-1.5 w-1.5 rounded-full bg-digitify-purple opacity-80" />
@@ -121,16 +121,16 @@ export const StatsCounter: React.FC<StatsCounterProps> = ({ stats }) => {
 
               {/* Numerical Value with Smooth Deceleration & No Layout Shift */}
               <div>
-                <div className="text-3xl sm:text-4xl md:text-5xl font-display font-medium tracking-tight text-black dark:text-white tabular-nums leading-none">
+                <div className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-display font-medium tracking-tight text-black dark:text-white tabular-nums leading-none">
                   {displayValue}
                 </div>
-                <div className="text-xs sm:text-sm font-mono uppercase tracking-wider text-black dark:text-white mt-2.5 font-medium">
+                <div className="text-[11px] xs:text-xs sm:text-sm font-mono uppercase tracking-wider text-black dark:text-white mt-2 sm:mt-2.5 font-medium">
                   {stat.label}
                 </div>
               </div>
 
               {/* Description */}
-              <p className="text-[11px] sm:text-xs text-day-muted dark:text-agency-muted leading-relaxed border-t border-day-border/60 dark:border-agency-border/60 pt-2.5">
+              <p className="text-[10px] xs:text-[11px] sm:text-xs text-day-muted dark:text-agency-muted leading-relaxed border-t border-day-border/60 dark:border-agency-border/60 pt-2 sm:pt-2.5">
                 {stat.description}
               </p>
             </div>

@@ -11,12 +11,12 @@ export const Footer: React.FC = () => {
     : '/brand/digitify-logo-black.png';
 
   return (
-    <footer className="w-full border-t border-day-border dark:border-agency-border bg-white dark:bg-[#08080a] text-black dark:text-white pt-16 sm:pt-20 pb-12 px-4 sm:px-8 md:px-12 transition-colors duration-200">
-      <div className="max-w-7xl mx-auto flex flex-col space-y-16">
+    <footer className="w-full border-t border-day-border dark:border-agency-border bg-white dark:bg-[#08080a] text-black dark:text-white pt-12 xs:pt-16 sm:pt-20 pb-10 sm:pb-12 px-4 sm:px-8 md:px-12 transition-colors duration-200 safe-pb">
+      <div className="max-w-7xl mx-auto flex flex-col space-y-10 sm:space-y-16">
         {/* Top Row: Brand Statement & Primary Channels */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
+        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-12 gap-8 sm:gap-10 md:gap-8">
           {/* Brand mark & Tagline */}
-          <div className="md:col-span-5 flex flex-col space-y-4">
+          <div className="xs:col-span-2 md:col-span-5 flex flex-col space-y-4">
             <Link to="/" className="inline-block" aria-label="Digitify Home">
               <img
                 src={logoSrc}
@@ -44,11 +44,11 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Services Links */}
-          <div className="md:col-span-3 flex flex-col space-y-3">
+          <div className="xs:col-span-1 md:col-span-3 flex flex-col space-y-3">
             <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted">
               Services
             </span>
-            <ul className="space-y-2 text-sm text-day-subtext dark:text-agency-subtext">
+            <ul className="space-y-2.5 text-sm text-day-subtext dark:text-agency-subtext">
               <li>
                 <Link
                   to="/services#digital-marketing"
@@ -57,7 +57,7 @@ export const Footer: React.FC = () => {
                       document.getElementById('digital-marketing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                   }}
-                  className="hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+                  className="hover:text-black dark:hover:text-white transition-colors cursor-pointer inline-block py-0.5"
                 >
                   Digital Marketing
                 </Link>
@@ -70,7 +70,7 @@ export const Footer: React.FC = () => {
                       document.getElementById('performance-marketing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                   }}
-                  className="hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+                  className="hover:text-black dark:hover:text-white transition-colors cursor-pointer inline-block py-0.5"
                 >
                   Performance Marketing
                 </Link>
@@ -83,7 +83,7 @@ export const Footer: React.FC = () => {
                       document.getElementById('social-media')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                   }}
-                  className="hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+                  className="hover:text-black dark:hover:text-white transition-colors cursor-pointer inline-block py-0.5"
                 >
                   Social Media Management
                 </Link>
@@ -96,7 +96,7 @@ export const Footer: React.FC = () => {
                       document.getElementById('branding')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                   }}
-                  className="hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+                  className="hover:text-black dark:hover:text-white transition-colors cursor-pointer inline-block py-0.5"
                 >
                   Branding & Identity
                 </Link>
@@ -109,7 +109,7 @@ export const Footer: React.FC = () => {
                       document.getElementById('graphic-design')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                   }}
-                  className="hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+                  className="hover:text-black dark:hover:text-white transition-colors cursor-pointer inline-block py-0.5"
                 >
                   Graphic Design
                 </Link>
@@ -122,7 +122,7 @@ export const Footer: React.FC = () => {
                       document.getElementById('web-design')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                   }}
-                  className="hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+                  className="hover:text-black dark:hover:text-white transition-colors cursor-pointer inline-block py-0.5"
                 >
                   Web Design & Experiences
                 </Link>
@@ -131,33 +131,33 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="md:col-span-2 flex flex-col space-y-3">
+          <div className="xs:col-span-1 md:col-span-2 flex flex-col space-y-3">
             <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted">
               Navigation
             </span>
-            <ul className="space-y-2 text-sm text-day-subtext dark:text-agency-subtext">
+            <ul className="space-y-2.5 text-sm text-day-subtext dark:text-agency-subtext">
               <li>
-                <Link to="/about" className="hover:text-black dark:hover:text-white transition-colors">
+                <Link to="/about" className="hover:text-black dark:hover:text-white transition-colors inline-block py-0.5">
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-black dark:hover:text-white transition-colors">
+                <Link to="/services" className="hover:text-black dark:hover:text-white transition-colors inline-block py-0.5">
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/work" className="hover:text-black dark:hover:text-white transition-colors">
+                <Link to="/work" className="hover:text-black dark:hover:text-white transition-colors inline-block py-0.5">
                   Work (06)
                 </Link>
               </li>
               <li>
-                <Link to="/case-studies" className="hover:text-black dark:hover:text-white transition-colors">
+                <Link to="/case-studies" className="hover:text-black dark:hover:text-white transition-colors inline-block py-0.5">
                   Case Studies
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-black dark:hover:text-white transition-colors">
+                <Link to="/contact" className="hover:text-black dark:hover:text-white transition-colors inline-block py-0.5">
                   Contact
                 </Link>
               </li>
@@ -165,11 +165,11 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Social Links */}
-          <div className="md:col-span-2 flex flex-col space-y-3">
+          <div className="xs:col-span-2 md:col-span-2 flex flex-col space-y-3 pt-2 xs:pt-0">
             <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted">
               Connect
             </span>
-            <ul className="space-y-2 text-sm text-day-subtext dark:text-agency-subtext">
+            <ul className="flex flex-row flex-wrap xs:flex-col gap-x-5 gap-y-2.5 text-sm text-day-subtext dark:text-agency-subtext">
               <li>
                 <a
                   href="https://www.instagram.com/digitify.official/"
@@ -220,9 +220,9 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Row: Copyright & Legal */}
-        <div className="pt-8 border-t border-day-border dark:border-agency-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-day-muted dark:text-agency-muted">
+        <div className="pt-6 sm:pt-8 border-t border-day-border dark:border-agency-border flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-day-muted dark:text-agency-muted text-center sm:text-left">
           <p>© 2026 Digitify. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <Link
               to="/privacy"
               className="hover:text-black dark:hover:text-white transition-colors"

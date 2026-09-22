@@ -37,7 +37,7 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 py-6 sm:py-10 flex flex-col space-y-10 sm:space-y-14 md:space-y-16">
+    <div className="w-full max-w-7xl mx-auto px-3.5 xs:px-4 sm:px-8 md:px-12 py-5 xs:py-6 sm:py-10 flex flex-col space-y-8 xs:space-y-10 sm:space-y-14 md:space-y-16">
       {/* Hero Header */}
       <section className="flex flex-col space-y-3 sm:space-y-4">
         <div className="flex items-center gap-2 text-xs font-mono text-day-muted dark:text-agency-muted uppercase tracking-widest">
@@ -45,30 +45,30 @@ export const About: React.FC = () => {
           <span>01 — ABOUT DIGITIFY</span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium tracking-tightest leading-[1] text-black dark:text-white">
+        <h1 className="text-2xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium tracking-tightest leading-[1.04] sm:leading-[1] text-black dark:text-white">
           WE BUILD BRANDS
           <br />
           THAT MOVE BUSINESSES FORWARD<span className="text-digitify-purple">.</span>
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl text-day-subtext dark:text-agency-subtext font-normal leading-relaxed max-w-2xl pt-1">
+        <p className="text-sm xs:text-base sm:text-lg md:text-xl text-day-subtext dark:text-agency-subtext font-normal leading-relaxed max-w-2xl pt-1">
           Strategy, design &amp; digital marketing built for ambitious brands.
         </p>
       </section>
 
       {/* Narrative Section: What We Believe */}
-      <section className="border-t border-day-border dark:border-agency-border pt-8 sm:pt-10 md:pt-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12">
+      <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-12">
           <div className="lg:col-span-5">
-            <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-3">
+            <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-2 sm:mb-3">
               OUR BELIEF
             </span>
-            <h2 className="text-xl sm:text-3xl font-display font-medium text-black dark:text-white leading-tight">
+            <h2 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-display font-medium text-black dark:text-white leading-snug sm:leading-tight">
               Design is not merely what it looks like. It is how a brand commands presence.
             </h2>
           </div>
 
-          <div className="lg:col-span-7 space-y-4 text-xs sm:text-sm text-day-subtext dark:text-agency-subtext leading-relaxed">
+          <div className="lg:col-span-7 space-y-3.5 sm:space-y-4 text-xs sm:text-sm text-day-subtext dark:text-agency-subtext leading-relaxed">
             <p>
               In an attention economy crowded with template-driven homogeny, most brands become invisible noise. We exist to create the antidote: deliberate, confident, and unforgettable digital experiences.
             </p>
@@ -85,17 +85,17 @@ export const About: React.FC = () => {
       {/* ━━━━━━━━━━━━━━━━━━━━
           SECTION — THE TEAM (02 — THE TEAM)
           ━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="border-t border-day-border dark:border-agency-border pt-8 sm:pt-10 md:pt-12">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8 gap-3">
+      <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 sm:mb-8 gap-2 xs:gap-3">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
               02 — THE TEAM
             </span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-medium tracking-tight text-black dark:text-white">
+            <h2 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-display font-medium tracking-tight text-black dark:text-white">
               THE MINDS BEHIND DIGITIFY
             </h2>
           </div>
-          <span className="text-xs font-mono text-day-muted dark:text-agency-muted">
+          <span className="hidden xs:block text-xs font-mono text-day-muted dark:text-agency-muted">
             CLICK TO VIEW INDIVIDUAL PROFILE
           </span>
         </div>
@@ -109,35 +109,35 @@ export const About: React.FC = () => {
       </section>
 
       {/* 4 Core Pillars: STRATEGY, CREATIVITY, EXECUTION, GROWTH */}
-      <section className="border-t border-day-border dark:border-agency-border pt-8 sm:pt-10 md:pt-12">
-        <div className="mb-6 sm:mb-8">
+      <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
+        <div className="mb-5 sm:mb-8">
           <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
             OUR PILLARS
           </span>
-          <h2 className="text-2xl sm:text-4xl font-display font-medium tracking-tight text-black dark:text-white">
+          <h2 className="text-xl xs:text-2xl sm:text-4xl font-display font-medium tracking-tight text-black dark:text-white">
             THE FOUR DISCIPLINARY PILLARS
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-6">
           {pillars.map((pillar) => (
             <div
               key={pillar.number}
-              className="relative overflow-hidden p-6 sm:p-7 rounded-lg border border-day-border dark:border-agency-border bg-day-surface/60 dark:bg-agency-surface/40 hover:bg-day-surface dark:hover:bg-agency-surface/70 hover:border-digitify-purple/40 dark:hover:border-digitify-purple/40 motion-safe:hover:-translate-y-1.5 transition-all duration-400 ease-out flex flex-col justify-between space-y-5 group cursor-default select-none motion-reduce:transform-none"
+              className="relative overflow-hidden p-4 xs:p-5 sm:p-7 rounded-lg border border-day-border dark:border-agency-border bg-day-surface/60 dark:bg-agency-surface/40 hover:bg-day-surface dark:hover:bg-agency-surface/70 hover:border-digitify-purple/40 dark:hover:border-digitify-purple/40 motion-safe:hover:-translate-y-1.5 transition-all duration-400 ease-out flex flex-col justify-between space-y-4 sm:space-y-5 group cursor-default select-none motion-reduce:transform-none"
             >
               {/* Top Row: Number & Tagline */}
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs text-day-muted dark:text-agency-muted group-hover:text-digitify-purple group-hover:translate-x-1 transition-all duration-400 ease-out motion-reduce:transform-none">
                   {pillar.number}
                 </span>
-                <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted">
+                <span className="text-[11px] xs:text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted">
                   {pillar.tagline}
                 </span>
               </div>
 
               {/* Middle: Title with upward shift & Description fading into focus */}
               <div>
-                <h3 className="text-xl sm:text-2xl font-display font-medium text-black dark:text-white mb-2 transition-transform duration-400 ease-out group-hover:-translate-y-0.5 sm:group-hover:-translate-y-1 motion-reduce:transform-none">
+                <h3 className="text-lg xs:text-xl sm:text-2xl font-display font-medium text-black dark:text-white mb-1.5 sm:mb-2 transition-transform duration-400 ease-out group-hover:-translate-y-0.5 sm:group-hover:-translate-y-1 motion-reduce:transform-none">
                   {pillar.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-day-subtext/85 dark:text-agency-subtext/85 group-hover:text-day-subtext dark:group-hover:text-agency-subtext group-hover:opacity-100 transition-all duration-400 ease-out leading-relaxed">
@@ -156,13 +156,13 @@ export const About: React.FC = () => {
       </section>
 
       {/* Philosophy Statement & CTA */}
-      <section className="border-t border-day-border dark:border-agency-border pt-8 sm:pt-10 md:pt-12">
-        <div className="bg-day-surface dark:bg-agency-surface border border-day-border dark:border-agency-border rounded-xl p-6 sm:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+      <section className="border-t border-day-border dark:border-agency-border pt-6 xs:pt-8 sm:pt-10 md:pt-12">
+        <div className="bg-day-surface dark:bg-agency-surface border border-day-border dark:border-agency-border rounded-xl p-5 xs:p-6 sm:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 sm:gap-6">
           <div className="max-w-2xl">
             <span className="text-xs font-mono uppercase tracking-widest text-digitify-purple block mb-1.5">
               Ready to collaborate?
             </span>
-            <h3 className="text-xl sm:text-3xl font-display font-medium text-black dark:text-white mb-2">
+            <h3 className="text-lg xs:text-xl sm:text-3xl font-display font-medium text-black dark:text-white mb-2">
               Let’s build something remarkable together.
             </h3>
             <p className="text-xs sm:text-sm text-day-subtext dark:text-agency-subtext">
@@ -172,7 +172,7 @@ export const About: React.FC = () => {
 
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-black text-white dark:bg-white dark:text-black text-xs uppercase tracking-widest font-semibold hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shrink-0 shadow-sm"
+            className="w-full sm:w-auto justify-center inline-flex items-center gap-2.5 px-6 py-3.5 sm:py-3 rounded-full bg-black text-white dark:bg-white dark:text-black text-xs uppercase tracking-widest font-semibold hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shrink-0 shadow-sm"
           >
             <span>Start a Project</span>
             <ArrowRight size={14} />

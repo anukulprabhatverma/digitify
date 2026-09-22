@@ -4,22 +4,22 @@ import { ArrowLeft } from 'lucide-react';
 
 export const PrivacyPolicy: React.FC = () => {
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 sm:px-8 py-12 sm:py-20 flex flex-col space-y-12">
+    <div className="w-full max-w-4xl mx-auto px-3.5 xs:px-4 sm:px-8 py-6 xs:py-8 sm:py-20 flex flex-col space-y-8 xs:space-y-12">
       <div>
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted hover:text-black dark:hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted hover:text-black dark:hover:text-white transition-colors py-1"
         >
           <ArrowLeft size={14} />
           <span>Back to Home</span>
         </Link>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-3 xs:space-y-4">
         <span className="text-xs font-mono uppercase tracking-widest text-digitify-purple">
           Legal & Compliance
         </span>
-        <h1 className="text-3xl sm:text-5xl font-display font-medium text-black dark:text-white tracking-tight">
+        <h1 className="text-2xl xs:text-3xl sm:text-5xl font-display font-medium text-black dark:text-white tracking-tight">
           Privacy Policy
         </h1>
         <p className="text-xs font-mono text-day-muted dark:text-agency-muted">
