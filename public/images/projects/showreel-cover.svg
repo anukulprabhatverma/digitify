@@ -1,0 +1,14 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#0d0d10"/>
+  <line x1="100" y1="0" x2="100" y2="800" stroke="#1f1f26" stroke-width="1"/>
+  <line x1="1100" y1="0" x2="1100" y2="800" stroke="#1f1f26" stroke-width="1"/>
+  
+  <rect x="260" y="220" width="680" height="380" rx="6" stroke="#262630" stroke-width="1.5"/>
+  <circle cx="600" cy="410" r="60" stroke="#7928CA" stroke-width="2" stroke-opacity="0.7"/>
+  <polygon points="590,390 620,410 590,430" fill="#ffffff"/>
+  
+  <text x="140" y="150" fill="#71717a" font-family="'Space Grotesk', sans-serif" font-size="14" letter-spacing="4">SHOWREEL — EDITORIAL COVER</text>
+  <text x="140" y="670" fill="#a1a1aa" font-family="'Inter', sans-serif" font-size="16" letter-spacing="2">DIGITIFY AGENCY SHOWREEL</text>
+  <text x="140" y="695" fill="#52525b" font-family="'Inter', sans-serif" font-size="13">BRANDING · DIGITAL EXPERIENCES · CREATIVE DIRECTION</text>
+  <text x="940" y="695" fill="#71717a" font-family="'JetBrains Mono', monospace" font-size="13">02:14 MIN · 4K</text>
+</svg>

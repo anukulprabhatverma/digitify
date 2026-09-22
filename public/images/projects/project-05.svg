@@ -1,0 +1,15 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#0d0d10"/>
+  <line x1="200" y1="0" x2="200" y2="800" stroke="#1f1f26" stroke-width="1"/>
+  <line x1="1000" y1="0" x2="1000" y2="800" stroke="#1f1f26" stroke-width="1"/>
+  
+  <rect x="440" y="240" width="320" height="420" stroke="#2a2a35" stroke-width="1.5"/>
+  <line x1="440" y1="360" x2="760" y2="360" stroke="#7928CA" stroke-width="1" stroke-opacity="0.4"/>
+  <circle cx="500" cy="300" r="20" stroke="#ffffff" stroke-width="1" stroke-opacity="0.8"/>
+  <rect x="540" y="295" width="160" height="10" fill="#262630"/>
+  
+  <text x="140" y="160" fill="#71717a" font-family="'Space Grotesk', sans-serif" font-size="14" letter-spacing="4">PROJECT 05 — PLACEHOLDER</text>
+  <text x="140" y="650" fill="#a1a1aa" font-family="'Inter', sans-serif" font-size="16" letter-spacing="2">GRAPHIC DESIGN</text>
+  <text x="140" y="675" fill="#52525b" font-family="'Inter', sans-serif" font-size="13">EDITORIAL LAYOUT · VISUAL ASSETS · PRINT & DIGITAL</text>
+  <text x="940" y="675" fill="#71717a" font-family="'JetBrains Mono', monospace" font-size="13">1200 × 800 PX</text>
+</svg>

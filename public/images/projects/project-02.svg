@@ -1,0 +1,15 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#0d0d10"/>
+  <line x1="80" y1="0" x2="80" y2="800" stroke="#1f1f26" stroke-width="1"/>
+  <line x1="1120" y1="0" x2="1120" y2="800" stroke="#1f1f26" stroke-width="1"/>
+  
+  <!-- Minimalist composition -->
+  <polygon points="600,240 760,520 440,520" stroke="#2a2a35" stroke-width="1.5" stroke-dasharray="4 6" fill="none"/>
+  <polygon points="600,280 720,490 480,490" stroke="#7928CA" stroke-width="1.5" stroke-opacity="0.5" fill="none"/>
+  <circle cx="600" cy="420" r="40" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.8"/>
+  
+  <text x="120" y="160" fill="#71717a" font-family="'Space Grotesk', sans-serif" font-size="14" letter-spacing="4">PROJECT 02 — PLACEHOLDER</text>
+  <text x="120" y="650" fill="#a1a1aa" font-family="'Inter', sans-serif" font-size="16" letter-spacing="2">AWARDS CAMPAIGN</text>
+  <text x="120" y="675" fill="#52525b" font-family="'Inter', sans-serif" font-size="13">PERFORMANCE MARKETING · CREATIVE DIRECTION</text>
+  <text x="940" y="675" fill="#71717a" font-family="'JetBrains Mono', monospace" font-size="13">1200 × 800 PX</text>
+</svg>

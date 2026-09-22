@@ -1,0 +1,20 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#0d0d10"/>
+  <!-- Architectural grid lines -->
+  <line x1="100" y1="0" x2="100" y2="800" stroke="#1f1f26" stroke-width="1"/>
+  <line x1="1100" y1="0" x2="1100" y2="800" stroke="#1f1f26" stroke-width="1"/>
+  <line x1="0" y1="120" x2="1200" y2="1200" stroke="#1f1f26" stroke-width="1"/>
+  <line x1="0" y1="680" x2="1200" y2="680" stroke="#1f1f26" stroke-width="1"/>
+  
+  <!-- Minimalist abstract geometry -->
+  <circle cx="600" cy="400" r="220" stroke="#2a2a35" stroke-width="1.5" stroke-dasharray="4 6"/>
+  <circle cx="600" cy="400" r="140" stroke="#7928CA" stroke-width="1.5" stroke-opacity="0.6"/>
+  <rect x="520" y="320" width="160" height="160" stroke="#333340" stroke-width="1.5"/>
+  <line x1="450" y1="400" x2="750" y2="400" stroke="#2a2a35" stroke-width="1"/>
+  
+  <!-- Minimal editorial tags -->
+  <text x="140" y="180" fill="#71717a" font-family="'Space Grotesk', sans-serif" font-size="14" letter-spacing="4">PROJECT 01 — PLACEHOLDER</text>
+  <text x="140" y="650" fill="#a1a1aa" font-family="'Inter', sans-serif" font-size="16" letter-spacing="2">BRAND CAMPAIGN</text>
+  <text x="140" y="675" fill="#52525b" font-family="'Inter', sans-serif" font-size="13">DIGITAL STRATEGY · CREATIVE · SOCIAL MEDIA</text>
+  <text x="920" y="675" fill="#71717a" font-family="'JetBrains Mono', monospace" font-size="13">1200 × 800 PX</text>
+</svg>
