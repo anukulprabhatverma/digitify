@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowDown, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { SoftwareMarquee } from '../components/ui/SoftwareMarquee';
 import { ServiceRow } from '../components/ui/ServiceRow';
 import { StatsCounter } from '../components/ui/StatsCounter';
 import { ServiceMarquee } from '../components/ui/ServiceMarquee';
@@ -17,36 +18,38 @@ export const Home: React.FC = () => {
   return (
     <div className="w-full flex flex-col space-y-12 sm:space-y-16 md:space-y-20 pb-16">
       {/* ━━━━━━━━━━━━━━━━━━━━
-          SECTION 01 — HERO
+          SECTION 01 — HERO (REDESIGNED EDITORIAL AGENCY HERO)
           ━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="pt-4 xs:pt-6 sm:pt-8 md:pt-10 px-3.5 xs:px-4 sm:px-8 md:px-12 max-w-7xl mx-auto w-full">
-        {/* Massive Editorial Headline with Fluid Clamp */}
-        <div className="w-full">
-          <h1 className="text-3xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-[6.4vw] font-display font-medium tracking-tightest leading-[1.04] sm:leading-[0.98] text-black dark:text-white select-none">
-            WE MAKE BRANDS
-            <br />
-            <span className="text-black dark:text-white">IMPOSSIBLE </span>
-            <span className="text-stroke hover:text-black dark:hover:text-white transition-colors">TO IGNORE</span>
-            <span className="text-digitify-purple">.</span>
-          </h1>
-        </div>
+      <section className="relative pt-4 xs:pt-6 sm:pt-8 md:pt-10 px-3.5 xs:px-4 sm:px-8 md:px-12 max-w-7xl mx-auto w-full overflow-hidden">
+        {/* Subtle Light Grid Background */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-40 dark:opacity-10 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_20%,#000_60%,transparent_100%)]"
+          aria-hidden="true"
+        />
 
-        {/* Tightly aligned split content */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center mt-5 xs:mt-6 sm:mt-8 md:mt-10">
-          {/* Left Column: Availability, Copy & CTAs */}
-          <div className="lg:col-span-6 flex flex-col space-y-3.5 xs:space-y-4">
-            <div className="inline-flex items-center gap-2 text-[11px] xs:text-xs font-mono text-day-muted dark:text-agency-muted">
-              <span className="h-2 w-2 rounded-full bg-digitify-purple animate-pulse shrink-0" />
-              <span className="tracking-wider uppercase text-day-subtext dark:text-agency-subtext font-medium">
-                AVAILABLE FOR SELECT PROJECTS
-              </span>
+        {/* Two-Column Desktop Composition */}
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center w-full min-w-0">
+          {/* LEFT SIDE: Software Marquee + Main Positioning + CTAs + Social Links */}
+          <div className="lg:col-span-6 xl:col-span-7 flex flex-col space-y-5 sm:space-y-6 md:space-y-7 w-full min-w-0">
+            {/* 1. Software / Platform Marquee (Moving LEFT -> RIGHT continuously) */}
+            <div className="w-full min-w-0 overflow-hidden">
+              <SoftwareMarquee />
             </div>
 
-            <p className="text-sm xs:text-base sm:text-lg md:text-xl text-day-subtext dark:text-agency-subtext font-normal leading-relaxed max-w-xl">
-              Digital marketing, branding, design and experiences built to move businesses forward.
-            </p>
+            {/* 2. Main Positioning Statement */}
+            <div className="space-y-3 xs:space-y-3.5 sm:space-y-4">
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[2.85rem] xl:text-[3.35rem] font-display font-medium tracking-tightest leading-[1.08] text-black dark:text-white select-none break-words">
+                Building digital presence that drives business growth
+                <span className="text-digitify-purple">.</span>
+              </h1>
 
-            <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-2.5 xs:gap-3 pt-1">
+              <p className="text-xs xs:text-sm sm:text-base md:text-lg text-day-subtext dark:text-agency-subtext font-normal leading-relaxed max-w-xl">
+                Digitify partners with ambitious brands to engineer strong digital presence and achieve measurable commercial growth through integrated strategy, design, technology, and performance marketing.
+              </p>
+            </div>
+
+            {/* 3. Primary CTAs */}
+            <div id="hero-cta-container" className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1">
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-black text-white dark:bg-white dark:text-black text-xs uppercase tracking-widest font-semibold hover:bg-neutral-800 dark:hover:bg-neutral-200 active:scale-95 transition-all shadow-sm"
@@ -56,70 +59,103 @@ export const Home: React.FC = () => {
               </Link>
               <Link
                 to="/work"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-day-border dark:border-agency-border text-black dark:text-white text-xs uppercase tracking-widest font-medium hover:border-black dark:hover:border-white active:scale-95 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-day-border dark:border-agency-border text-black dark:text-white text-xs uppercase tracking-widest font-medium hover:border-black dark:hover:border-white active:scale-95 transition-colors"
               >
                 <span>View Our Work</span>
               </Link>
             </div>
 
-            {/* Core agency discipline tags */}
-            <div className="pt-1 flex flex-wrap gap-1.5 xs:gap-2 text-[10px] xs:text-[11px] font-mono text-day-muted dark:text-agency-muted">
-              <span className="px-2.5 xs:px-3 py-1 rounded-full border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface">
-                Branding & Identity
+            {/* 4. Social / Profile CTA Links */}
+            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs font-mono text-day-muted dark:text-agency-muted pt-1">
+              <span className="text-[11px] uppercase tracking-widest text-day-subtext dark:text-agency-subtext font-medium mr-1">
+                CONNECT:
               </span>
-              <span className="px-2.5 xs:px-3 py-1 rounded-full border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface">
-                Performance Media
-              </span>
-              <span className="px-2.5 xs:px-3 py-1 rounded-full border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface">
-                Web Experiences
-              </span>
-              <span className="px-2.5 xs:px-3 py-1 rounded-full border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface">
-                Social Strategy
-              </span>
+              <a
+                href="https://www.instagram.com/digitify.official/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Digitify on Instagram (opens in new tab)"
+                className="inline-flex items-center gap-1 px-3 py-1 rounded-full border border-day-border dark:border-agency-border bg-day-surface/80 dark:bg-agency-surface/80 hover:border-black dark:hover:border-white text-black dark:text-white transition-colors"
+              >
+                <span>Instagram</span>
+                <ArrowUpRight size={11} className="opacity-60" />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Digitify on LinkedIn (opens in new tab)"
+                className="inline-flex items-center gap-1 px-3 py-1 rounded-full border border-day-border dark:border-agency-border bg-day-surface/80 dark:bg-agency-surface/80 hover:border-black dark:hover:border-white text-black dark:text-white transition-colors"
+              >
+                <span>LinkedIn</span>
+                <ArrowUpRight size={11} className="opacity-60" />
+              </a>
+              <a
+                href="https://behance.net"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Digitify on Behance (opens in new tab)"
+                className="inline-flex items-center gap-1 px-3 py-1 rounded-full border border-day-border dark:border-agency-border bg-day-surface/80 dark:bg-agency-surface/80 hover:border-black dark:hover:border-white text-black dark:text-white transition-colors"
+              >
+                <span>Behance</span>
+                <ArrowUpRight size={11} className="opacity-60" />
+              </a>
             </div>
           </div>
 
-          {/* Right Column: Flagship Feature Showcase Card */}
-          <div className="lg:col-span-6 w-full">
+          {/* RIGHT SIDE: Large Featured Project / Case Study Visual Card */}
+          <div className="lg:col-span-6 xl:col-span-5 w-full">
             <Link
               to="/case-studies/coolbee-store"
-              className="group block relative rounded-xl border border-day-border dark:border-agency-border overflow-hidden bg-day-surface dark:bg-agency-surface transition-colors duration-200"
+              className="group block relative w-full rounded-2xl sm:rounded-3xl border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface p-3 xs:p-3.5 sm:p-4 transition-all duration-300 hover:border-black/30 dark:hover:border-white/30 shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
             >
-              <div className="relative aspect-[16/10] overflow-hidden bg-black">
+              {/* Visual Showcase Frame with high-res Coolbee Store snapshot */}
+              <div className="relative aspect-[16/11] sm:aspect-[16/10] lg:aspect-[4/3] xl:aspect-[16/11] w-full rounded-xl sm:rounded-2xl overflow-hidden bg-black/5 dark:bg-black/50 border border-day-border/60 dark:border-agency-border/60">
                 <img
                   src="/images/projects/coolbee.png"
                   alt="Featured Case Study - Coolbee Store"
-                  className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
-                <div className="absolute top-3 xs:top-4 right-3 xs:right-4">
-                  <span className="text-[9px] xs:text-[10px] font-mono tracking-widest uppercase px-2.5 xs:px-3 py-1 rounded-full bg-white text-black font-semibold shadow-md">
-                    FEATURED CASE
+                {/* Subtle vignette gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25 pointer-events-none" />
+
+                {/* Top Badges */}
+                <div className="absolute top-3 xs:top-3.5 sm:top-4 left-3 xs:left-3.5 sm:left-4 right-3 xs:right-3.5 sm:right-4 flex items-center justify-between pointer-events-none">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 dark:bg-black/90 backdrop-blur-md text-black dark:text-white text-[10px] xs:text-[11px] font-mono uppercase tracking-widest font-semibold shadow-sm border border-black/10 dark:border-white/15">
+                    <span className="w-1.5 h-1.5 rounded-full bg-digitify-purple animate-pulse" />
+                    NEW CASE
+                  </span>
+                  <span className="inline-flex px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md text-white/90 text-[10px] font-mono uppercase tracking-wider border border-white/10">
+                    FEATURED 01
                   </span>
                 </div>
+
+                {/* Floating Bottom Quick View Indicator */}
+                <div className="absolute bottom-3 right-3 xs:bottom-3.5 xs:right-3.5 sm:bottom-4 sm:right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-black text-black dark:text-white text-xs font-mono uppercase tracking-wider font-medium shadow-md transition-transform duration-300 group-hover:translate-x-0.5">
+                  <span>View Case</span>
+                  <ArrowUpRight size={13} />
+                </div>
               </div>
-              <div className="p-3.5 xs:p-4 sm:p-5 border-t border-day-border dark:border-agency-border flex items-center justify-between gap-3">
+
+              {/* Minimal Editorial Details */}
+              <div className="mt-3.5 sm:mt-4 px-1 pb-1 flex items-end justify-between gap-3">
                 <div className="min-w-0">
-                  <h4 className="text-sm xs:text-base sm:text-lg font-display font-medium text-black dark:text-white group-hover:text-digitify-purple transition-colors truncate">
+                  <span className="text-[10px] xs:text-[11px] font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-0.5">
+                    E-Commerce Flagship · Social Media · Growth
+                  </span>
+                  <h3 className="text-base xs:text-lg sm:text-xl font-display font-medium text-black dark:text-white group-hover:text-digitify-purple transition-colors truncate">
                     Coolbee Store
-                  </h4>
-                  <p className="text-[11px] xs:text-xs font-mono text-day-muted dark:text-agency-muted mt-0.5 truncate">
-                    Website · Social Media · Digital Marketing
+                  </h3>
+                  <p className="text-[11px] xs:text-xs font-mono text-day-subtext dark:text-agency-subtext mt-0.5 truncate">
+                    Next-Gen Commerce & Brand Acquisition System
                   </p>
                 </div>
-                <div className="w-8 h-8 rounded-full border border-day-border dark:border-agency-border flex items-center justify-center text-day-muted dark:text-agency-muted group-hover:text-black dark:group-hover:text-white group-hover:border-black dark:group-hover:border-white transition-all shrink-0">
-                  <ArrowUpRight size={14} />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-day-border dark:border-agency-border flex items-center justify-center text-day-muted dark:text-agency-muted group-hover:text-black dark:group-hover:text-white group-hover:border-black dark:group-hover:border-white transition-all shrink-0 bg-white dark:bg-agency-surface shadow-sm">
+                  <ArrowUpRight size={15} />
                 </div>
               </div>
             </Link>
           </div>
-        </div>
-
-        {/* Scroll affordance line */}
-        <div className="mt-6 sm:mt-10 pt-3.5 sm:pt-4 border-t border-day-border/60 dark:border-agency-border/40 flex items-center justify-between text-[10px] xs:text-xs font-mono text-day-muted dark:text-agency-muted">
-          <span>SCROLL TO DISCOVER</span>
-          <ArrowDown size={14} className="animate-bounce" />
-          <span className="hidden xs:inline">EST. 2023 · NEW DELHI</span>
-          <span className="xs:hidden">EST. 2023</span>
         </div>
       </section>
 
@@ -130,9 +166,6 @@ export const Home: React.FC = () => {
         <div className="border-t border-day-border dark:border-agency-border pt-8 xs:pt-10 sm:pt-12 md:pt-14">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-10 gap-3 sm:gap-4">
             <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
-                CAPABILITIES
-              </span>
               <h2 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-display font-medium tracking-tight text-black dark:text-white">
                 WHAT WE DO
               </h2>
@@ -178,16 +211,10 @@ export const Home: React.FC = () => {
           <div className="border-t border-day-border dark:border-agency-border pt-8 xs:pt-10 sm:pt-12 md:pt-14">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 sm:mb-6 gap-2 sm:gap-3">
               <div>
-                <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
-                  METRICS
-                </span>
                 <h2 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-display font-medium tracking-tight text-black dark:text-white">
                   AGENCY AT A GLANCE
                 </h2>
               </div>
-              <span className="text-[11px] xs:text-xs font-mono text-day-muted dark:text-agency-muted">
-                EDITABLE METRIC CONFIGURATION
-              </span>
             </div>
 
             {/* Viewport intersection animated counters */}
@@ -200,72 +227,11 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━━
-          SECTION 05 — ABOUT DIGITIFY
-          ━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="px-3.5 xs:px-4 sm:px-8 md:px-12 max-w-7xl mx-auto w-full">
-        <div className="border-t border-day-border dark:border-agency-border pt-8 xs:pt-10 sm:pt-12 md:pt-14">
-          <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-2 sm:mb-3">
-            01 — ABOUT
-          </span>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12">
-            <div className="lg:col-span-8">
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tight leading-[1.08] text-black dark:text-white mb-4 sm:mb-5">
-                BUILT FOR BRANDS
-                <br />
-                THAT WANT TO MOVE<span className="text-digitify-purple">.</span>
-              </h2>
-
-              <p className="text-base xs:text-lg sm:text-xl md:text-2xl text-black dark:text-white font-normal leading-relaxed mb-3 sm:mb-4">
-                &ldquo;Digitify is a digital agency focused on building brands, digital experiences and growth systems that move businesses forward.&rdquo;
-              </p>
-
-              <p className="text-xs xs:text-sm sm:text-base text-day-subtext dark:text-agency-subtext leading-relaxed max-w-2xl">
-                We eliminate the unnecessary clutter of traditional marketing and focus on high-conviction creative direction, technical precision, and measurable brand growth.
-              </p>
-            </div>
-
-            <div className="lg:col-span-4 flex flex-col justify-between space-y-5 lg:border-l lg:border-day-border dark:lg:border-agency-border lg:pl-8">
-              <div className="space-y-3.5 sm:space-y-4">
-                <div className="border-b border-day-border/60 dark:border-agency-border/60 pb-3">
-                  <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block">
-                    Positioning
-                  </span>
-                  <p className="text-xs xs:text-sm sm:text-base font-display text-black dark:text-white mt-1">
-                    Strategy · Creative · Growth Systems
-                  </p>
-                </div>
-                <div className="border-b border-day-border/60 dark:border-agency-border/60 pb-3">
-                  <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block">
-                    Focus
-                  </span>
-                  <p className="text-xs xs:text-sm sm:text-base font-display text-black dark:text-white mt-1">
-                    Brands that refuse to blend into the noise
-                  </p>
-                </div>
-              </div>
-
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-black dark:text-white hover:text-digitify-purple transition-colors pt-1"
-              >
-                <span>Explore Full Agency & Team</span>
-                <ArrowRight size={14} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ━━━━━━━━━━━━━━━━━━━━
-          SECTION 06 — APPROACH ("HOW WE WORK")
+          SECTION 05 — APPROACH ("HOW WE WORK")
           ━━━━━━━━━━━━━━━━━━━━ */}
       <section className="px-3.5 xs:px-4 sm:px-8 md:px-12 max-w-7xl mx-auto w-full">
         <div className="border-t border-day-border dark:border-agency-border pt-8 xs:pt-10 sm:pt-12 md:pt-14">
           <div className="mb-5 sm:mb-8">
-            <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
-              02 — METHODOLOGY
-            </span>
             <h2 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-display font-medium tracking-tight text-black dark:text-white">
               HOW WE WORK
             </h2>
@@ -282,9 +248,6 @@ export const Home: React.FC = () => {
       <section className="px-3.5 xs:px-4 sm:px-8 md:px-12 max-w-7xl mx-auto w-full">
         <div className="border-t border-day-border dark:border-agency-border pt-8 xs:pt-10 sm:pt-12 md:pt-14">
           <div className="mb-5 sm:mb-8">
-            <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
-              03 — CLIENT TESTIMONIALS
-            </span>
             <h2 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-display font-medium tracking-tight text-black dark:text-white">
               WHAT PARTNERS SAY
             </h2>
@@ -300,9 +263,6 @@ export const Home: React.FC = () => {
           ━━━━━━━━━━━━━━━━━━━━ */}
       <section className="px-3.5 xs:px-4 sm:px-8 md:px-12 max-w-7xl mx-auto w-full">
         <div className="border-t border-day-border dark:border-agency-border pt-10 xs:pt-14 sm:pt-18 pb-6 text-center flex flex-col items-center">
-          <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-2 sm:mb-3">
-            LET’S COLLABORATE
-          </span>
           <h2 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium tracking-tightest leading-[1.05] sm:leading-[1] text-black dark:text-white max-w-4xl mb-3 sm:mb-4">
             LET’S BUILD
             <br />

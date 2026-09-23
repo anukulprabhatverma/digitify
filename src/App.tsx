@@ -5,7 +5,7 @@ import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { ScrollProgress } from './components/layout/ScrollProgress';
 import { ScrollToTop } from './components/ui/ScrollToTop';
-import { MobileStickyCta } from './components/ui/MobileStickyCta';
+import { FloatingCta } from './components/ui/FloatingCta';
 
 // Pages
 import { Home } from './pages/Home';
@@ -25,7 +25,7 @@ export const App: React.FC = () => {
       <Router>
         <ScrollToTop />
         <ScrollProgress />
-        <MobileStickyCta />
+        <FloatingCta />
         <div className="min-h-screen flex flex-col bg-white dark:bg-[#08080a] text-black dark:text-white transition-colors duration-200">
           <Header />
           <main className="flex-1 w-full">

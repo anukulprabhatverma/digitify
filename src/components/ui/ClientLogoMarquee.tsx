@@ -33,9 +33,6 @@ export const ClientLogoMarquee: React.FC = () => {
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4">
         <div>
-          <span className="text-xs font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-1.5">
-            COLLABORATIONS
-          </span>
           <h2 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-display font-medium tracking-tight text-black dark:text-white">
             CLIENTS & COLLABORATIONS
           </h2>
@@ -74,12 +71,6 @@ export const ClientLogoMarquee: React.FC = () => {
             <LogoCard key={`r2-${logo.id}-${index}`} logo={logo} />
           ))}
         </div>
-      </div>
-
-      {/* Notice Tag */}
-      <div className="flex items-center justify-between text-[11px] font-mono text-day-muted dark:text-agency-muted pt-1">
-        <span>EDITABLE CLIENT LOGO PLACEHOLDERS</span>
-        <span className="hidden sm:inline">PAUSE ON HOVER</span>
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth bg-[#08080a] text-white antialiased">
+<html lang="en" class="scroll-smooth text-white antialiased" style="background-color: #ffffff;">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Digitify — Digital Marketing, Branding & Creative Agency</title>
+    <title>Digitify — Digital Marketing, Branding &amp; Creative Agency</title>
     <meta
       name="description"
       content="Digitify helps brands grow through digital marketing, branding, creative design and digital experiences."
@@ -14,14 +14,14 @@
 
     <!-- Open Graph / Meta -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Digitify — Digital Marketing, Branding & Creative Agency" />
+    <meta property="og:title" content="Digitify — Digital Marketing, Branding &amp; Creative Agency" />
     <meta
       property="og:description"
       content="Digitify helps brands grow through digital marketing, branding, creative design and digital experiences."
     />
     <meta property="og:image" content="/brand/digitify-logo-white.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Digitify — Digital Marketing, Branding & Creative Agency" />
+    <meta name="twitter:title" content="Digitify — Digital Marketing, Branding &amp; Creative Agency" />
     <meta
       name="twitter:description"
       content="Digitify helps brands grow through digital marketing, branding, creative design and digital experiences."
@@ -34,10 +34,240 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/assets/index-OjugoaBN.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-D3h703LL.css">
+
+    <!-- CRITICAL INITIAL INTRO & ZERO-FLASH STYLES -->
+    <style>
+      html, body {
+        background-color: #ffffff !important;
+      }
+
+      .digitify-intro-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #ffffff;
+        z-index: 999999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -moz-user-select: none;
+             user-select: none;
+        -webkit-user-select: none;
+        cursor: default;
+        transition: opacity 700ms cubic-bezier(0.65, 0, 0.35, 1);
+        will-change: opacity;
+        box-sizing: border-box;
+      }
+
+      .digitify-intro-container.intro-exiting {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .digitify-intro-content {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1), opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform, opacity;
+      }
+
+      .digitify-intro-container.intro-exiting .digitify-intro-content {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+
+      .digitify-intro-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      @media (min-width: 640px) {
+        .digitify-intro-row {
+          flex-direction: row;
+          align-items: baseline;
+          gap: 0 1.25rem;
+          flex-wrap: nowrap;
+        }
+      }
+
+      .digitify-word-wrapper {
+        overflow: hidden;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.15rem 0.25rem 0.35rem;
+        line-height: 1;
+      }
+
+      .digitify-word {
+        display: inline-block;
+        font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 500;
+        color: #09090b;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+        font-size: 2.35rem;
+        transform: translateY(115%);
+        opacity: 0;
+        animation: digitifySlideUp 620ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        will-change: transform, opacity;
+      }
+
+      @media (min-width: 380px) {
+        .digitify-word {
+          font-size: 2.75rem;
+        }
+      }
+
+      @media (min-width: 640px) {
+        .digitify-word {
+          font-size: 3.1rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .digitify-word {
+          font-size: 3.65rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .digitify-word {
+          font-size: 4.4rem;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .digitify-word {
+          font-size: 4.9rem;
+        }
+      }
+
+      .digitify-word-1 {
+        animation-delay: 120ms;
+      }
+
+      .digitify-word-2 {
+        animation-delay: 380ms;
+      }
+
+      .digitify-word-3 {
+        animation-delay: 640ms;
+      }
+
+      .digitify-dot {
+        color: #7928CA;
+      }
+
+      @keyframes digitifySlideUp {
+        0% {
+          transform: translateY(115%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0%);
+          opacity: 1;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .digitify-intro-container {
+          display: none !important;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-BKjLbyof.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CwR1pu5X.css">
   </head>
-  <body class="bg-[#08080a] text-[#f4f4f5] selection:bg-[#7928CA] selection:text-white min-h-screen flex flex-col font-sans overflow-x-hidden">
+  <body class="selection:bg-[#7928CA] selection:text-white min-h-screen flex flex-col font-sans overflow-x-hidden" style="background-color: #ffffff;">
+    <!-- ZERO-FLASH KINETIC TYPOGRAPHY OPENING INTRO -->
+    <div
+      id="digitify-intro-overlay"
+      class="digitify-intro-container"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Digitify Intro — Define. Develop. Differentiate."
+    >
+      <div class="digitify-intro-content">
+        <div class="digitify-intro-row">
+          <div class="digitify-word-wrapper">
+            <span class="digitify-word digitify-word-1">
+              Define<span class="digitify-dot">.</span>
+            </span>
+          </div>
+          <div class="digitify-word-wrapper">
+            <span class="digitify-word digitify-word-2">
+              Develop<span class="digitify-dot">.</span>
+            </span>
+          </div>
+          <div class="digitify-word-wrapper">
+            <span class="digitify-word digitify-word-3">
+              Differentiate<span class="digitify-dot">.</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INITIAL INTRO CONTROLLER -->
+    <script>
+      (function() {
+        // Prevent background scrolling while intro is running
+        document.body.style.overflow = 'hidden';
+
+        var overlay = document.getElementById('digitify-intro-overlay');
+        if (!overlay) return;
+
+        // Skip if user prefers reduced motion
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          overlay.remove();
+          document.body.style.overflow = '';
+          document.documentElement.style.backgroundColor = '';
+          document.body.style.backgroundColor = '';
+          return;
+        }
+
+        var isEnded = false;
+        function completeIntro() {
+          if (isEnded) return;
+          isEnded = true;
+
+          overlay.classList.add('intro-exiting');
+
+          setTimeout(function() {
+            if (overlay && overlay.parentNode) {
+              overlay.parentNode.removeChild(overlay);
+            }
+            document.body.style.overflow = '';
+            document.documentElement.style.backgroundColor = '';
+            document.body.style.backgroundColor = '';
+          }, 700);
+        }
+
+        // Tap/click to quick-skip
+        overlay.addEventListener('click', completeIntro);
+
+        // Word 1: 120ms + 620ms = 740ms
+        // Word 2: 380ms + 620ms = 1000ms
+        // Word 3: 640ms + 620ms = 1260ms
+        // Full statement hold: 1260ms to 2050ms (~790ms steady reading pause)
+        // Transition: 2050ms to 2750ms
+        setTimeout(completeIntro, 2050);
+      })();
+    </script>
+
     <div id="root"></div>
   </body>
 </html>

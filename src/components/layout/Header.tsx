@@ -81,17 +81,8 @@ export const Header: React.FC = () => {
             <span>{currentTime || '00:00, India'}</span>
           </div>
 
-          {/* Right: Availability, Nav, Theme Toggle & Showreel */}
+          {/* Right: Nav, Theme Toggle & Showreel */}
           <div className="flex items-center gap-1.5 xs:gap-2 sm:gap-3">
-            {/* Availability status badge */}
-            <div className="hidden xl:flex items-center gap-2 text-xs font-mono px-3 py-1 rounded-full border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface text-day-subtext dark:text-agency-subtext">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-digitify-purple opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-digitify-purple"></span>
-              </span>
-              <span className="tracking-wide">AVAILABLE FOR SELECT PROJECTS</span>
-            </div>
-
             {/* Desktop Navigation Links */}
             <nav className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => {
