@@ -8,6 +8,7 @@ import { ServiceMarquee } from '../components/ui/ServiceMarquee';
 import { ClientLogoMarquee } from '../components/ui/ClientLogoMarquee';
 import { TestimonialSlider } from '../components/ui/TestimonialSlider';
 import { ApproachSteps } from '../components/ui/ApproachSteps';
+import { DigitifyHero3D } from '../components/hero/DigitifyHero3D';
 import { servicesData } from '../data/servicesData';
 import { statsData } from '../data/statsData';
 import { testimonialsData } from '../data/testimonialsData';
@@ -103,58 +104,9 @@ export const Home: React.FC = () => {
             </div>
           </div>
 
-          {/* RIGHT SIDE: Large Featured Project / Case Study Visual Card */}
+          {/* RIGHT SIDE: Interactive 3D Digitify AI Robot Character & Brand Experience */}
           <div className="lg:col-span-6 xl:col-span-5 w-full">
-            <Link
-              to="/case-studies/coolbee-store"
-              className="group block relative w-full rounded-2xl sm:rounded-3xl border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface p-3 xs:p-3.5 sm:p-4 transition-all duration-300 hover:border-black/30 dark:hover:border-white/30 shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
-            >
-              {/* Visual Showcase Frame with high-res Coolbee Store snapshot */}
-              <div className="relative aspect-[16/11] sm:aspect-[16/10] lg:aspect-[4/3] xl:aspect-[16/11] w-full rounded-xl sm:rounded-2xl overflow-hidden bg-black/5 dark:bg-black/50 border border-day-border/60 dark:border-agency-border/60">
-                <img
-                  src="/images/projects/coolbee.png"
-                  alt="Featured Case Study - Coolbee Store"
-                  className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                />
-                {/* Subtle vignette gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25 pointer-events-none" />
-
-                {/* Top Badges */}
-                <div className="absolute top-3 xs:top-3.5 sm:top-4 left-3 xs:left-3.5 sm:left-4 right-3 xs:right-3.5 sm:right-4 flex items-center justify-between pointer-events-none">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 dark:bg-black/90 backdrop-blur-md text-black dark:text-white text-[10px] xs:text-[11px] font-mono uppercase tracking-widest font-semibold shadow-sm border border-black/10 dark:border-white/15">
-                    <span className="w-1.5 h-1.5 rounded-full bg-digitify-purple animate-pulse" />
-                    NEW CASE
-                  </span>
-                  <span className="inline-flex px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md text-white/90 text-[10px] font-mono uppercase tracking-wider border border-white/10">
-                    FEATURED 01
-                  </span>
-                </div>
-
-                {/* Floating Bottom Quick View Indicator */}
-                <div className="absolute bottom-3 right-3 xs:bottom-3.5 xs:right-3.5 sm:bottom-4 sm:right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-black text-black dark:text-white text-xs font-mono uppercase tracking-wider font-medium shadow-md transition-transform duration-300 group-hover:translate-x-0.5">
-                  <span>View Case</span>
-                  <ArrowUpRight size={13} />
-                </div>
-              </div>
-
-              {/* Minimal Editorial Details */}
-              <div className="mt-3.5 sm:mt-4 px-1 pb-1 flex items-end justify-between gap-3">
-                <div className="min-w-0">
-                  <span className="text-[10px] xs:text-[11px] font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted block mb-0.5">
-                    E-Commerce Flagship · Social Media · Growth
-                  </span>
-                  <h3 className="text-base xs:text-lg sm:text-xl font-display font-medium text-black dark:text-white group-hover:text-digitify-purple transition-colors truncate">
-                    Coolbee Store
-                  </h3>
-                  <p className="text-[11px] xs:text-xs font-mono text-day-subtext dark:text-agency-subtext mt-0.5 truncate">
-                    Next-Gen Commerce & Brand Acquisition System
-                  </p>
-                </div>
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-day-border dark:border-agency-border flex items-center justify-center text-day-muted dark:text-agency-muted group-hover:text-black dark:group-hover:text-white group-hover:border-black dark:group-hover:border-white transition-all shrink-0 bg-white dark:bg-agency-surface shadow-sm">
-                  <ArrowUpRight size={15} />
-                </div>
-              </div>
-            </Link>
+            <DigitifyHero3D />
           </div>
         </div>
       </section>
