@@ -13,8 +13,9 @@ interface ServiceStackProps {
  * High-performance compositor-driven transforms (requestAnimationFrame):
  * - Checks each card's position relative to its viewport sticky point
  * - When subsequent cards rise and overlay previous cards:
- *   Subtle scale reduction: 1.0 -> 0.98 -> 0.96
+ *   Subtle scale reduction: 1.0 -> 0.985
  *   Subtle depth shadow and opacity easing
+ *   Zero feedback loops on geometry measurements
  * - Zero React re-renders on scroll events
  */
 export const ServiceStack: React.FC<ServiceStackProps> = ({ services }) => {
@@ -36,10 +37,9 @@ export const ServiceStack: React.FC<ServiceStackProps> = ({ services }) => {
     const updateStackingDepths = () => {
       ticking = false;
       const cards = cardRefs.current;
-      const vh = window.innerHeight;
       const isMobile = window.innerWidth < 1024;
-      const baseTop = isMobile ? 60 : 76;
-      const stepTop = isMobile ? 14 : 26;
+      const baseTop = isMobile ? 52 : 74;
+      const stepTop = isMobile ? 4 : 12;
       const isDark = document.documentElement.classList.contains('dark');
 
       for (let i = 0; i < cards.length; i++) {
@@ -47,7 +47,9 @@ export const ServiceStack: React.FC<ServiceStackProps> = ({ services }) => {
         if (!card) continue;
 
         const scrim = card.querySelector<HTMLDivElement>('.service-card-scrim');
-        const cardRect = card.getBoundingClientRect();
+        const cardHeight = card.offsetHeight;
+        const iStickyTop = baseTop + i * stepTop;
+        const iBottom = iStickyTop + cardHeight;
 
         // Accumulate coverage depth from cards that rise over this card
         let totalCoverage = 0;
@@ -56,18 +58,16 @@ export const ServiceStack: React.FC<ServiceStackProps> = ({ services }) => {
           const incomingCard = cards[k];
           if (!incomingCard) continue;
 
-          const incomingStickyTop = baseTop + k * stepTop;
+          const kStickyTop = baseTop + k * stepTop;
           const incomingRect = incomingCard.getBoundingClientRect();
 
-          // Incoming card starts affecting card i when it begins actually covering card i
-          const overlapStart = Math.min(vh, cardRect.bottom + 50);
-          const overlapEnd = incomingStickyTop;
-          const travelDistance = overlapStart - overlapEnd;
+          // Incoming card starts affecting card i when it begins physically overlapping card i
+          const overlapDistance = iBottom - kStickyTop;
 
-          if (travelDistance > 0 && incomingRect.top < overlapStart) {
+          if (overlapDistance > 0 && incomingRect.top < iBottom) {
             const rawP = Math.max(
               0,
-              Math.min(1, (overlapStart - incomingRect.top) / travelDistance)
+              Math.min(1, (iBottom - incomingRect.top) / overlapDistance)
             );
             // Cubic Hermite smoothstep for continuous fluid motion with 0 initial/final jerk
             const smoothP = rawP * rawP * (3 - 2 * rawP);
@@ -79,19 +79,19 @@ export const ServiceStack: React.FC<ServiceStackProps> = ({ services }) => {
           // ACTIVE FRONT CARD:
           // 100% sharp, zero blur, solid brightness, scale 1.0, scrim completely invisible
           card.style.transform = 'translate3d(0, 0, 0) scale(1)';
-          card.style.filter = 'none';
+          card.style.filter = 'blur(0px)';
           card.style.opacity = '1';
           if (scrim) scrim.style.opacity = '0';
         } else {
           // CARD UNDERNEATH:
-          // Smooth progressive blur: 0px -> ~5.2px on first cover, up to 8.0px for deeper stack
+          // Smooth progressive blur: 0px -> ~4.5px
           // In Light Mode: delicate contrast shadow, never dirty or muddy
           // In Dark Mode: rich obsidian dimming into the background
-          const blurPx = Math.min(8.0, totalCoverage * 5.2);
-          const maxDim = isDark ? 0.55 : 0.20;
-          const dimStep = isDark ? 0.38 : 0.14;
+          const blurPx = Math.min(5.0, totalCoverage * 3.8);
+          const maxDim = isDark ? 0.45 : 0.18;
+          const dimStep = isDark ? 0.32 : 0.12;
           const dimOpacity = Math.min(maxDim, totalCoverage * dimStep);
-          const scale = Math.max(0.97, 1 - totalCoverage * 0.015);
+          const scale = Math.max(0.978, 1 - totalCoverage * 0.012);
 
           card.style.transform = `translate3d(0, 0, 0) scale(${scale.toFixed(4)})`;
           card.style.filter = `blur(${blurPx.toFixed(2)}px)`;
