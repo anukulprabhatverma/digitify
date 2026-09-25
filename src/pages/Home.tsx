@@ -15,6 +15,11 @@ import { testimonialsData } from '../data/testimonialsData';
 
 export const Home: React.FC = () => {
   const [hoveredServiceId, setHoveredServiceId] = useState<string | null>(null);
+  const [expandedMobileServiceId, setExpandedMobileServiceId] = useState<string | null>(null);
+
+  const handleToggleMobileService = (id: string) => {
+    setExpandedMobileServiceId((prev) => (prev === id ? null : id));
+  };
 
   return (
     <div className="w-full flex flex-col space-y-12 sm:space-y-16 md:space-y-20 pb-16">
@@ -138,8 +143,10 @@ export const Home: React.FC = () => {
                 key={service.id}
                 service={service}
                 isHovered={hoveredServiceId === service.id}
+                isMobileExpanded={expandedMobileServiceId === service.id}
                 onMouseEnter={() => setHoveredServiceId(service.id)}
                 onMouseLeave={() => setHoveredServiceId(null)}
+                onToggleMobile={() => handleToggleMobileService(service.id)}
               />
             ))}
           </div>

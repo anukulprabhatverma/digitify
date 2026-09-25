@@ -21,11 +21,14 @@ export const ScrollToTop = () => {
         return false;
       };
 
-      // Attempt immediate scroll; retry with slight delay if page is still mounting
-      if (!scrollToTarget()) {
-        const timer = setTimeout(scrollToTarget, 100);
-        return () => clearTimeout(timer);
-      }
+      // Attempt immediate scroll and retry with delays for layout stabilization
+      scrollToTarget();
+      const t1 = setTimeout(scrollToTarget, 100);
+      const t2 = setTimeout(scrollToTarget, 300);
+      return () => {
+        clearTimeout(t1);
+        clearTimeout(t2);
+      };
     } else {
       window.scrollTo({
         top: 0,
