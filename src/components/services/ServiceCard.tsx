@@ -15,17 +15,17 @@ export const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
     const isLast = index === total - 1;
 
     // Staggered sticky top offsets replicate the exact layered deck tab effect in the reference
-    // Desktop: 74px base + index * 12px (conserves vertical space so no bottom clipping occurs)
-    // Mobile: 52px base + index * 4px
-    const desktopStickyTop = 74 + index * 12;
-    const mobileStickyTop = 52 + index * 4;
+    // Desktop: 88px base + index * 12px (clears 81px sticky header with intentional breathing room)
+    // Mobile: 68px base + index * 4px (clears 61px sticky header with intentional breathing room)
+    const desktopStickyTop = 88 + index * 12;
+    const mobileStickyTop = 68 + index * 4;
 
     return (
       <div
         ref={ref}
         id={service.id}
         data-index={index}
-        className={`service-card sticky w-full rounded-2xl sm:rounded-3xl border will-change-transform scroll-mt-20 lg:scroll-mt-24 ${
+        className={`service-card sticky w-full rounded-2xl sm:rounded-3xl border will-change-transform scroll-mt-24 lg:scroll-mt-28 ${
           isLast ? 'mb-8 sm:mb-12 lg:mb-16' : 'mb-[60vh] sm:mb-[70vh] lg:mb-[75vh]'
         } bg-white dark:bg-[#0e0e12] border-black/[0.08] dark:border-white/[0.1] border-t-black/[0.14] dark:border-t-white/20 shadow-[0_-10px_30px_-8px_rgba(0,0,0,0.08)] dark:shadow-[0_-20px_45px_-12px_rgba(0,0,0,0.8)] overflow-hidden`}
         style={{
@@ -52,9 +52,9 @@ export const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
         />
 
         {/* Anchor targets for backward compatibility */}
-        {service.id === 'branding' && <span id="branding-identity" className="absolute -top-28" />}
-        {service.id === 'social-media' && <span id="social-media-management" className="absolute -top-28" />}
-        {service.id === 'web-design' && <span id="web-design-experiences" className="absolute -top-28" />}
+        {service.id === 'branding' && <span id="branding-identity" className="sr-only" />}
+        {service.id === 'social-media' && <span id="social-media-management" className="sr-only" />}
+        {service.id === 'web-design' && <span id="web-design-experiences" className="sr-only" />}
 
         {/* TOP DECK HEADER BAR (Visual Tab in Layered Deck) */}
         <div className="flex items-center justify-between px-3.5 sm:px-5 lg:px-6 py-1 sm:py-2 border-b border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.02]">

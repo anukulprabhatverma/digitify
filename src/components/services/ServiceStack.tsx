@@ -38,7 +38,7 @@ export const ServiceStack: React.FC<ServiceStackProps> = ({ services }) => {
       ticking = false;
       const cards = cardRefs.current;
       const isMobile = window.innerWidth < 1024;
-      const baseTop = isMobile ? 52 : 74;
+      const baseTop = isMobile ? 68 : 88;
       const stepTop = isMobile ? 4 : 12;
       const isDark = document.documentElement.classList.contains('dark');
 
@@ -124,13 +124,20 @@ export const ServiceStack: React.FC<ServiceStackProps> = ({ services }) => {
   return (
     <section className="service-stack relative w-full">
       {services.map((service, index) => (
-        <ServiceCard
-          key={service.id}
-          ref={(el) => (cardRefs.current[index] = el)}
-          service={service}
-          index={index}
-          total={services.length}
-        />
+        <React.Fragment key={service.id}>
+          <div
+            id={`anchor-${service.id}`}
+            data-service-anchor={service.id}
+            className="service-anchor relative w-full h-0 pointer-events-none"
+            aria-hidden="true"
+          />
+          <ServiceCard
+            ref={(el) => (cardRefs.current[index] = el)}
+            service={service}
+            index={index}
+            total={services.length}
+          />
+        </React.Fragment>
       ))}
     </section>
   );

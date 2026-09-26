@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
+import { scrollToService } from '../../utils/scrollUtils';
 
 export const Footer: React.FC = () => {
   const { isDark } = useTheme();
@@ -9,6 +10,14 @@ export const Footer: React.FC = () => {
   const logoSrc = isDark
     ? '/brand/digitify-logo-white.png'
     : '/brand/digitify-logo-black.png';
+
+  const handleServiceClick = (targetHash: string, e: React.MouseEvent) => {
+    if (window.location.pathname === '/services') {
+      e.preventDefault();
+      window.history.pushState(null, '', `/services#${targetHash}`);
+      scrollToService(targetHash, true);
+    }
+  };
 
   return (
     <footer className="w-full border-t border-day-border dark:border-agency-border bg-white dark:bg-[#08080a] text-black dark:text-white pt-12 xs:pt-16 sm:pt-20 pb-10 sm:pb-12 px-4 sm:px-8 md:px-12 transition-colors duration-200 safe-pb">
@@ -52,11 +61,7 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/services#digital-marketing"
-                  onClick={() => {
-                    if (window.location.pathname === '/services') {
-                      document.getElementById('digital-marketing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }}
+                  onClick={(e) => handleServiceClick('digital-marketing', e)}
                   className="hover:text-black dark:hover:text-white transition-colors cursor-pointer inline-block py-0.5"
                 >
                   Digital Marketing
@@ -65,11 +70,7 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/services#performance-marketing"
-                  onClick={() => {
-                    if (window.location.pathname === '/services') {
-                      document.getElementById('performance-marketing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }}
+                  onClick={(e) => handleServiceClick('performance-marketing', e)}
                   className="hover:text-black dark:hover:text-white transition-colors cursor-pointer inline-block py-0.5"
                 >
                   Performance Marketing
@@ -77,12 +78,8 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  to="/services#social-media"
-                  onClick={() => {
-                    if (window.location.pathname === '/services') {
-                      document.getElementById('social-media')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }}
+                  to="/services#social-media-management"
+                  onClick={(e) => handleServiceClick('social-media-management', e)}
                   className="hover:text-black dark:hover:text-white transition-colors cursor-pointer inline-block py-0.5"
                 >
                   Social Media Management
@@ -91,11 +88,7 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/services#branding"
-                  onClick={() => {
-                    if (window.location.pathname === '/services') {
-                      document.getElementById('branding')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }}
+                  onClick={(e) => handleServiceClick('branding', e)}
                   className="hover:text-black dark:hover:text-white transition-colors cursor-pointer inline-block py-0.5"
                 >
                   Branding & Identity
@@ -104,11 +97,7 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/services#graphic-design"
-                  onClick={() => {
-                    if (window.location.pathname === '/services') {
-                      document.getElementById('graphic-design')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }}
+                  onClick={(e) => handleServiceClick('graphic-design', e)}
                   className="hover:text-black dark:hover:text-white transition-colors cursor-pointer inline-block py-0.5"
                 >
                   Graphic Design
@@ -117,11 +106,7 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/services#web-design"
-                  onClick={() => {
-                    if (window.location.pathname === '/services') {
-                      document.getElementById('web-design')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }}
+                  onClick={(e) => handleServiceClick('web-design', e)}
                   className="hover:text-black dark:hover:text-white transition-colors cursor-pointer inline-block py-0.5"
                 >
                   Web Design & Experiences

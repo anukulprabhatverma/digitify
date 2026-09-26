@@ -1,33 +1,32 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { scrollToService } from '../../utils/scrollUtils';
 
 export const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
     if (hash) {
-      const targetId = hash.replace('#', '');
-      const prefersReducedMotion = window.matchMedia(
-        '(prefers-reduced-motion: reduce)'
-      ).matches;
-      const behavior: ScrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+      const prefersReducedMotion =
+        typeof window !== 'undefined' &&
+        window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const smooth = !prefersReducedMotion;
 
-      const scrollToTarget = () => {
-        const element = document.getElementById(targetId);
-        if (element) {
-          element.scrollIntoView({ behavior, block: 'start' });
-          return true;
-        }
-        return false;
+      const performScroll = () => {
+        return scrollToService(hash, smooth);
       };
 
       // Attempt immediate scroll and retry with delays for layout stabilization
-      scrollToTarget();
-      const t1 = setTimeout(scrollToTarget, 100);
-      const t2 = setTimeout(scrollToTarget, 300);
+      performScroll();
+      const t1 = setTimeout(performScroll, 60);
+      const t2 = setTimeout(performScroll, 200);
+      const t3 = setTimeout(performScroll, 400);
+
       return () => {
         clearTimeout(t1);
         clearTimeout(t2);
+        clearTimeout(t3);
       };
     } else {
       window.scrollTo({
@@ -40,3 +39,4 @@ export const ScrollToTop = () => {
 
   return null;
 };
+
