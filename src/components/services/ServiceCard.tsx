@@ -26,7 +26,7 @@ export const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
         id={service.id}
         data-index={index}
         className={`service-card sticky w-full rounded-2xl sm:rounded-3xl border will-change-transform scroll-mt-20 lg:scroll-mt-24 ${
-          isLast ? 'mb-[35vh] sm:mb-[45vh]' : 'mb-[60vh] sm:mb-[70vh] lg:mb-[75vh]'
+          isLast ? 'mb-8 sm:mb-12 lg:mb-16' : 'mb-[60vh] sm:mb-[70vh] lg:mb-[75vh]'
         } bg-white dark:bg-[#0e0e12] border-black/[0.08] dark:border-white/[0.1] border-t-black/[0.14] dark:border-t-white/20 shadow-[0_-10px_30px_-8px_rgba(0,0,0,0.08)] dark:shadow-[0_-20px_45px_-12px_rgba(0,0,0,0.8)] overflow-hidden`}
         style={{
           top: `var(--sticky-top, ${desktopStickyTop}px)`,
