@@ -50,39 +50,7 @@ export const teamMembers: TeamMember[] = [
   },
 
   /* ━━━━━━━━━━━━━━━━━━━━
-     02 — AARTI KUMARI
-     ━━━━━━━━━━━━━━━━━━━━ */
-  {
-    id: 'aarti-kumari',
-    name: 'Aarti Kumari',
-    role: 'CO-FOUNDER & OPERATIONS',
-    specialisation: 'Leadership & Operations',
-    category: 'Agency Leadership',
-    number: '02',
-    initials: 'AK',
-    isFounder: true,
-    image: '/images/team/aarti.png',
-    shortIntro:
-      "Leads the internal operations and keeps projects, people and execution aligned. She works across the team to maintain consistency, coordination and smooth delivery from planning to completion.",
-    responsibilities: [
-      'Day-to-Day Agency Operations & Delivery Governance',
-      'Cross-Disciplinary Team Coordination & Project Planning',
-      'Workflow Discipline from Planning to Completion',
-      'Internal Resource Scheduling & Operational Standards',
-    ],
-    expertise: [
-      'Agency Leadership',
-      'Operations Management',
-      'Project Planning',
-      'Team Coordination',
-      'Delivery Alignment',
-    ],
-    projectFocus:
-      'Orchestrates operational workflows and cross-team choreography to ensure complex initiatives execute smoothly and stay aligned.',
-  },
-
-  /* ━━━━━━━━━━━━━━━━━━━━
-     03 — NISHU KUMAR
+     02 — NISHU KUMAR
      ━━━━━━━━━━━━━━━━━━━━ */
   {
     id: 'nishu-kumar',
@@ -90,7 +58,7 @@ export const teamMembers: TeamMember[] = [
     role: 'UI/UX EXPERT',
     specialisation: 'Product Experience & Interface Design',
     category: 'Digital Experience & Design',
-    number: '03',
+    number: '02',
     initials: 'NK',
     experience: '6–7 Years',
     image: '/images/team/nishu.png',
@@ -114,7 +82,7 @@ export const teamMembers: TeamMember[] = [
   },
 
   /* ━━━━━━━━━━━━━━━━━━━━
-     04 — RAVNEET SINGH
+     03 — RAVNEET SINGH
      ━━━━━━━━━━━━━━━━━━━━ */
   {
     id: 'ravneet-singh',
@@ -122,7 +90,7 @@ export const teamMembers: TeamMember[] = [
     role: 'ADVISORY & CONSULTATION',
     specialisation: 'Strategic Advisory',
     category: 'Strategic Advisory',
-    number: '04',
+    number: '03',
     initials: 'RS',
     image: '/images/team/ravneet.jpg',
     shortIntro:
@@ -144,7 +112,7 @@ export const teamMembers: TeamMember[] = [
   },
 
   /* ━━━━━━━━━━━━━━━━━━━━
-     05 — RAHUL VERMA
+     04 — RAHUL VERMA
      ━━━━━━━━━━━━━━━━━━━━ */
   {
     id: 'rahul-verma',
@@ -152,7 +120,7 @@ export const teamMembers: TeamMember[] = [
     role: 'DIGITAL MARKETING CONSULTANT',
     specialisation: 'Performance & Growth',
     category: 'Growth & Marketing',
-    number: '05',
+    number: '04',
     initials: 'RV',
     image: '/images/team/rahul.png',
     shortIntro:
@@ -175,7 +143,7 @@ export const teamMembers: TeamMember[] = [
   },
 
   /* ━━━━━━━━━━━━━━━━━━━━
-     06 — SHIVANSH BORA
+     05 — SHIVANSH BORA
      ━━━━━━━━━━━━━━━━━━━━ */
   {
     id: 'shivansh-bora',
@@ -183,7 +151,7 @@ export const teamMembers: TeamMember[] = [
     role: 'CREATIVE LEAD',
     specialisation: 'Creative Direction · Visuals',
     category: 'Creative Leadership',
-    number: '06',
+    number: '05',
     initials: 'SB',
     shortIntro:
       'Manages the creative side of projects and helps maintain consistency across visual communication. Shivansh works across ideas, creative direction and execution to turn strategic thinking into engaging visual work.',
@@ -204,7 +172,7 @@ export const teamMembers: TeamMember[] = [
   },
 
   /* ━━━━━━━━━━━━━━━━━━━━
-     07 — NIKHIL NAUTIYAL
+     06 — NIKHIL NAUTIYAL
      ━━━━━━━━━━━━━━━━━━━━ */
   {
     id: 'nikhil-nautiyal',
@@ -212,7 +180,7 @@ export const teamMembers: TeamMember[] = [
     role: 'GRAPHIC DESIGNER',
     specialisation: 'Visual Design · Communication',
     category: 'Visual Design',
-    number: '07',
+    number: '06',
     initials: 'NN',
     shortIntro:
       'Creates visual communication across brand and digital touchpoints, translating ideas into clean, purposeful and engaging graphic design.',
@@ -233,7 +201,7 @@ export const teamMembers: TeamMember[] = [
   },
 
   /* ━━━━━━━━━━━━━━━━━━━━
-     08 — ROSHAN SHARMA
+     07 — ROSHAN SHARMA
      ━━━━━━━━━━━━━━━━━━━━ */
   {
     id: 'roshan-sharma',
@@ -241,7 +209,7 @@ export const teamMembers: TeamMember[] = [
     role: 'GRAPHIC DESIGNER',
     specialisation: 'Visual Design · Creative Execution',
     category: 'Visual Design',
-    number: '08',
+    number: '07',
     initials: 'RS',
     shortIntro:
       'Works across graphic design and creative production, helping transform concepts into polished visual assets for digital and brand communication.',
@@ -262,7 +230,7 @@ export const teamMembers: TeamMember[] = [
   },
 
   /* ━━━━━━━━━━━━━━━━━━━━
-     09 — AASHISH GULSHAN
+     08 — AASHISH GULSHAN
      ━━━━━━━━━━━━━━━━━━━━ */
   {
     id: 'aashish-gulshan',
@@ -270,7 +238,7 @@ export const teamMembers: TeamMember[] = [
     role: 'WEB DEVELOPER',
     specialisation: 'Development · Technology',
     category: 'Engineering & Technology',
-    number: '09',
+    number: '08',
     initials: 'AG',
     shortIntro:
       'Translates creative and UX directions into functional digital experiences. Aashish focuses on web development, implementation and the technical side of bringing Digitify’s digital work to life.',
@@ -291,7 +259,7 @@ export const teamMembers: TeamMember[] = [
   },
 
   /* ━━━━━━━━━━━━━━━━━━━━
-     10 — HARISH SHARMA
+     09 — HARISH SHARMA
      ━━━━━━━━━━━━━━━━━━━━ */
   {
     id: 'harish-sharma',
@@ -299,7 +267,7 @@ export const teamMembers: TeamMember[] = [
     role: 'MARKET RESEARCH',
     specialisation: 'Research · Insights',
     category: 'Research & Intelligence',
-    number: '10',
+    number: '09',
     initials: 'HS',
     shortIntro:
       'Focuses on market research and gathering useful insights that help inform strategy, audience understanding and project decisions.',

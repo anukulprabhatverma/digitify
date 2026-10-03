@@ -6,9 +6,7 @@ import { teamMembers } from '../data/teamData';
 export const TeamMemberDetail: React.FC = () => {
   const { memberId } = useParams<{ memberId: string }>();
 
-  const memberIndex = teamMembers.findIndex(
-    (m) => m.id === memberId || (memberId === 'aarti' && m.id === 'aarti-kumari')
-  );
+  const memberIndex = teamMembers.findIndex((m) => m.id === memberId);
   const member = teamMembers[memberIndex];
 
   if (!member) {
