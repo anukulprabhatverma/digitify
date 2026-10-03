@@ -7,38 +7,31 @@ interface LogoCardProps {
 
 const LogoCard: React.FC<LogoCardProps> = ({ logo }) => {
   return (
-    <div className="flex items-center gap-3 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface shrink-0 transition-colors duration-200 hover:border-black/40 dark:hover:border-white/40">
+    <div className="flex items-center gap-3 px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface shrink-0 transition-colors duration-200 hover:border-black/40 dark:hover:border-white/40">
       <div className="w-2 h-2 rounded-full bg-digitify-purple/70 shrink-0" />
-      <div className="flex flex-col items-center justify-center gap-1 min-w-[125px] sm:min-w-[145px]">
-        {/* Actual uploaded logo replacing "CLIENT LOGO XX" placeholder */}
-        <div className="h-7 sm:h-8 w-28 sm:w-32 flex items-center justify-center">
-          {logo.darkLogo ? (
-            <>
-              <img
-                src={logo.lightLogo}
-                alt={`${logo.name} logo`}
-                className="max-h-full max-w-full object-contain dark:hidden"
-              />
-              <img
-                src={logo.darkLogo}
-                alt={`${logo.name} logo`}
-                className="max-h-full max-w-full object-contain hidden dark:block"
-              />
-            </>
-          ) : (
+      <div className="h-7 sm:h-8 w-28 sm:w-36 flex items-center justify-center">
+        {logo.darkLogo ? (
+          <>
             <img
               src={logo.lightLogo}
-              alt={`${logo.name} logo`}
-              className={`max-h-full max-w-full object-contain ${
-                logo.darkInvert ? 'dark:brightness-0 dark:invert' : ''
-              }`}
+              alt={logo.name}
+              className="max-h-full max-w-full object-contain dark:hidden"
             />
-          )}
-        </div>
-        {/* Correct client name replacing fake category text */}
-        <span className="text-[10px] font-mono text-day-muted dark:text-agency-muted tracking-wider whitespace-nowrap">
-          {logo.name}
-        </span>
+            <img
+              src={logo.darkLogo}
+              alt={logo.name}
+              className="max-h-full max-w-full object-contain hidden dark:block"
+            />
+          </>
+        ) : (
+          <img
+            src={logo.lightLogo}
+            alt={logo.name}
+            className={`max-h-full max-w-full object-contain ${
+              logo.darkInvert ? 'dark:brightness-0 dark:invert' : ''
+            }`}
+          />
+        )}
       </div>
     </div>
   );
@@ -47,7 +40,7 @@ const LogoCard: React.FC<LogoCardProps> = ({ logo }) => {
 export const ClientLogoMarquee: React.FC = () => {
   const [isPaused, setIsPaused] = useState(false);
 
-  // Duplicate arrays to guarantee seamless, uninterrupted infinite looping (5 items x 4 = 20 items, 50% split = 10 items)
+  // Duplicate arrays to guarantee seamless, uninterrupted infinite looping (9 items x 4 = 36 items, 50% split = 18 items)
   const row1Items = [...clientLogosRow1, ...clientLogosRow1, ...clientLogosRow1, ...clientLogosRow1];
   const row2Items = [...clientLogosRow2, ...clientLogosRow2, ...clientLogosRow2, ...clientLogosRow2];
 
