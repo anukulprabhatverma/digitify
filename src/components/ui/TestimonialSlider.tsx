@@ -134,8 +134,8 @@ export const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
             </blockquote>
           </div>
 
-          {/* Attribution & Placeholder Verification */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pt-4 border-t border-day-border/60 dark:border-agency-border/60">
+          {/* Attribution */}
+          <div className="pt-4 border-t border-day-border/60 dark:border-agency-border/60">
             <div>
               <div className="text-xs sm:text-base font-mono uppercase tracking-wider font-semibold text-black dark:text-white">
                 — {current.clientName}
@@ -143,10 +143,6 @@ export const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
               <div className="text-[11px] sm:text-xs font-mono text-day-muted dark:text-agency-muted mt-0.5">
                 {current.companyRole}
               </div>
-            </div>
-
-            <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-day-muted dark:text-agency-muted w-fit">
-              <span>Verified Testimonial Placeholder</span>
             </div>
           </div>
         </div>
