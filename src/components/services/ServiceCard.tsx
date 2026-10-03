@@ -143,11 +143,14 @@ export const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
                 to={`/contact?service=${service.id}`}
                 className="inline-flex items-center justify-between w-full px-3.5 py-2 rounded-full border border-black/20 dark:border-white/20 text-[10.5px] xl:text-[11px] font-mono uppercase tracking-widest text-black dark:text-white hover:border-digitify-purple hover:text-digitify-purple active:scale-98 transition-all group"
               >
-                <span>Inquire for {service.name}</span>
-                <ArrowRight
-                  size={12}
-                  className="group-hover:translate-x-1 transition-transform text-digitify-purple"
-                />
+                <span>{service.ctaText ? service.ctaText.replace(/\s*→\s*$/, '') : `Inquire for ${service.name}`}</span>
+                <span className="inline-flex items-center text-digitify-purple">
+                  <span className="sr-only">→</span>
+                  <ArrowRight
+                    size={12}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
+                </span>
               </Link>
             </div>
           </div>
@@ -236,8 +239,11 @@ export const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
               to={`/contact?service=${service.id}`}
               className="flex items-center justify-between w-full py-1.5 px-3 rounded-full border border-black/20 dark:border-white/20 text-[9.5px] xs:text-[10px] font-mono uppercase tracking-widest text-black dark:text-white hover:border-digitify-purple hover:text-digitify-purple active:scale-98 transition-all"
             >
-              <span>Inquire for {service.name}</span>
-              <ArrowRight size={10} className="text-digitify-purple" />
+              <span>{service.ctaText ? service.ctaText.replace(/\s*→\s*$/, '') : `Inquire for ${service.name}`}</span>
+              <span className="inline-flex items-center text-digitify-purple">
+                <span className="sr-only">→</span>
+                <ArrowRight size={10} />
+              </span>
             </Link>
           </div>
         </div>

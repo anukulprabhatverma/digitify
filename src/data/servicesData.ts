@@ -6,6 +6,7 @@ export interface ServiceItem {
   fullDesc: string;
   deliverables: string[];
   suitableFor: string[];
+  ctaText?: string;
 }
 
 export const servicesData: ServiceItem[] = [
@@ -13,20 +14,21 @@ export const servicesData: ServiceItem[] = [
     id: 'digital-marketing',
     number: '01',
     name: 'Digital Marketing',
-    shortDesc: 'End-to-end digital acquisition and holistic audience engagement strategies built for sustainable market presence.',
-    fullDesc: 'We develop structured digital marketing frameworks that connect strategy, creative execution, and targeted distribution. Our approach ensures every channel works cohesively to elevate brand awareness and generate qualified market demand.',
+    shortDesc: 'We help you get in front of the right people, bring them to your business, and turn attention into action.',
+    fullDesc: 'We figure out who you need to reach, what will make them stop, and where you need to show up. Then we build, run and improve the campaigns around it.',
     deliverables: [
-      'Multi-channel digital marketing roadmap',
-      'Audience segmentation & persona mapping',
-      'Search engine optimization (SEO) architecture',
-      'Content distribution & omnichannel outreach',
-      'Funnel audit & conversion path optimization',
+      'A clear plan for where and how to market',
+      'Finding the people most likely to buy',
+      'SEO that helps people find you',
+      'Content that reaches the right people',
+      'Fixing the gaps between click and customer',
     ],
     suitableFor: [
-      'Brands scaling their regional or national footprint',
-      'Businesses requiring cohesive multi-channel distribution',
-      'Modern teams seeking structured customer acquisition journeys',
+      'Businesses ready to grow beyond word of mouth',
+      'Brands that want more people to find them',
+      'Teams tired of spending on ads without knowing what works',
     ],
+    ctaText: 'LET’S TALK →',
   },
   {
     id: 'performance-marketing',
