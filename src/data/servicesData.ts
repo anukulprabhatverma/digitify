@@ -15,7 +15,7 @@ export const servicesData: ServiceItem[] = [
     number: '01',
     name: 'Digital Marketing',
     shortDesc: 'We help you get in front of the right people, bring them to your business, and turn attention into action.',
-    fullDesc: 'We figure out who you need to reach, what will make them stop, and where you need to show up. Then we build, run and improve the campaigns around it.',
+    fullDesc: 'Good marketing starts with knowing who you’re talking to. We look at your audience, your market and what you’re trying to achieve, then build campaigns that make sense for your business — and keep improving them as we learn what works.',
     deliverables: [
       'A clear plan for where and how to market',
       'Finding the people most likely to buy',
