@@ -44,13 +44,18 @@ export const Home: React.FC = () => {
 
             {/* 2. Main Positioning Statement */}
             <div className="space-y-3 xs:space-y-3.5 sm:space-y-4">
-              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[2.85rem] xl:text-[3.35rem] font-display font-medium tracking-tightest leading-[1.08] text-black dark:text-white select-none break-words">
-                Building digital presence that drives business growth
-                <span className="text-digitify-purple">.</span>
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[2.85rem] xl:text-[3.35rem] font-display tracking-tightest leading-[1.08] select-none break-words">
+                <span className="block font-normal text-neutral-700 dark:text-neutral-300">
+                  We make brands easier to
+                </span>
+                <span className="block font-semibold text-black dark:text-white mt-1 sm:mt-1.5">
+                  notice, trust &amp; choose
+                  <span className="text-digitify-purple" style={{ color: '#7928CA' }}>.</span>
+                </span>
               </h1>
 
               <p className="text-xs xs:text-sm sm:text-base md:text-lg text-day-subtext dark:text-agency-subtext font-normal leading-relaxed max-w-xl">
-                Digitify partners with ambitious brands to engineer strong digital presence and achieve measurable commercial growth through integrated strategy, design, technology, and performance marketing.
+                We help businesses figure out what to say, how to look, and where to show up — then we build it with you.
               </p>
             </div>
 
