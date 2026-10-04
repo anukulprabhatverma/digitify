@@ -2,7 +2,7 @@
  * Digitify Agency — Work Projects Data
  * 
  * Local Asset-Grounded Portfolio System:
- * - Projects 01-05 use local multi-page PDF presentation decks
+ * - Projects 01-06 use local multi-page PDF presentation decks
  * - First page of each PDF is utilized as the crisp contained preview thumbnail
  * - Clicking any card opens the complete multi-page PDF deck inside the local Digitify modal
  * - 100% offline-reliable, zero external iframes, zero redirect dependencies
@@ -151,16 +151,24 @@ export const projectsData: ProjectItem[] = [
     id: 'urban-platter',
     number: '06',
     name: 'Urban Platter',
-    category: 'Website',
+    category: 'E-COMMERCE WEBSITE',
     categories: ['Website'],
-    previewType: 'image',
-    previewUrl: '/images/projects/urbanplatter.png',
-    previewImage: '/images/projects/urbanplatter.png',
+    previewType: 'pdf',
+    previewUrl: '/projects/urban_platter.pdf',
+    previewImage: '/images/projects/urban-platter.webp',
+    pdfUrl: '/projects/urban_platter.pdf',
+    pdfPages: [
+      '/projects/pages/urban-platter/page-1.webp',
+      '/projects/pages/urban-platter/page-2.webp',
+      '/projects/pages/urban-platter/page-3.webp',
+      '/projects/pages/urban-platter/page-4.webp',
+    ],
+    totalPages: 4,
     domain: 'urbanplatter.com',
     description:
       'Specialty culinary and gourmet food online storefront connecting food lovers with premium ingredients.',
-    tag: 'WEBSITE',
-    fallbackMessage: 'Contained visual snapshot · Click to explore',
+    tag: 'E-COMMERCE WEBSITE',
+    fallbackMessage: 'Local PDF presentation · Click to explore deck',
   },
   {
     id: 'divas-entertainment-awards',
