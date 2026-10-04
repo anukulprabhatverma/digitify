@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { ProjectCard } from '../components/ui/ProjectCard';
-import { projectsData, ProjectCategory } from '../data/projectsData';
+import { ProjectPreviewModal } from '../components/ui/ProjectPreviewModal';
+import { projectsData, ProjectCategory, ProjectItem } from '../data/projectsData';
 
 type FilterCategory = 'All' | ProjectCategory;
 
 export const Work: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<FilterCategory>('All');
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
   const categories: FilterCategory[] = [
     'All',
@@ -98,7 +100,11 @@ export const Work: React.FC = () => {
         <main className="lg:col-span-9">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 items-start">
             {filteredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <ProjectCard
+                key={project.id}
+                project={project}
+                onSelect={(proj) => setSelectedProject(proj)}
+              />
             ))}
 
             {filteredProjects.length === 0 && (
@@ -125,6 +131,13 @@ export const Work: React.FC = () => {
           <ArrowUpRight size={13} />
         </Link>
       </div>
+
+      {/* Full Multi-Page Project PDF Presentation Modal */}
+      <ProjectPreviewModal
+        isOpen={Boolean(selectedProject)}
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </div>
   );
 };

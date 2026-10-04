@@ -1,20 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FileText, Globe } from 'lucide-react';
 import { ProjectItem } from '../../data/projectsData';
 
 interface ProjectCardProps {
   project: ProjectItem;
+  onSelect?: (project: ProjectItem) => void;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const [isTouchActive, setIsTouchActive] = useState(false);
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
   const isPdf = project.previewType === 'pdf';
   const displayDomain =
     project.domain ||
     project.previewUrl.replace(/^https?:\/\//, '').replace(/\/.*$/, '');
 
+  const handleClick = () => {
+    if (onSelect) {
+      onSelect(project);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
-    <article className="relative overflow-hidden rounded-2xl border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface transition-all duration-300 flex flex-col shadow-sm">
+    <article
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
+      aria-label={`View ${project.name} presentation deck`}
+      className="group relative overflow-hidden rounded-2xl border border-day-border dark:border-agency-border bg-day-surface dark:bg-agency-surface transition-all duration-300 hover:border-black dark:hover:border-white/50 hover:shadow-xl flex flex-col shadow-sm cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-digitify-purple/50"
+    >
       {/* ━━━━━━━━━━━━━━━━━━━━
           TOP FRAME HEADER BAR (Editorial Window Frame)
           ━━━━━━━━━━━━━━━━━━━━ */}
@@ -59,69 +79,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
       {/* ━━━━━━━━━━━━━━━━━━━━
           CONTAINED VISUAL PREVIEW AREA
-          Fixed-height, strictly clipped inside card, internal vertical scrolling
+          Fixed-height card dimensions maintained, Page 1 thumbnail cleanly contained with aspect ratio preserved
           ━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative w-full h-[360px] xs:h-[400px] sm:h-[460px] lg:h-[520px] overflow-hidden bg-black/95 dark:bg-[#0c0c10]">
-        {/* Mobile touch shield: prevents scroll-trapping while allowing tap-to-interact */}
-        {!isTouchActive && (
-          <div
-            onClick={() => setIsTouchActive(true)}
-            className="md:hidden absolute inset-0 z-20 bg-black/35 backdrop-blur-[2px] flex flex-col items-center justify-center p-4 text-center cursor-pointer select-none"
-          >
-            <div className="px-3.5 py-1.5 rounded-full bg-white dark:bg-black text-black dark:text-white text-[11px] font-mono uppercase tracking-wider font-semibold shadow-xl border border-white/20 flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-digitify-purple animate-pulse" />
-              <span>Tap to explore preview</span>
-            </div>
-            <span className="text-[10px] font-mono text-zinc-300 mt-2 bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm">
-              Swipe outside to scroll page
-            </span>
-          </div>
-        )}
-
-        {isTouchActive && (
-          <button
-            onClick={() => setIsTouchActive(false)}
-            className="md:hidden absolute top-3 right-3 z-30 px-2.5 py-1 rounded-md bg-black/85 text-white text-[10px] font-mono uppercase tracking-wider border border-white/20 shadow-md backdrop-blur-sm active:scale-95 cursor-pointer"
-          >
-            Lock Scroll
-          </button>
-        )}
-
-        {isPdf ? (
-          /* Contained Vertical-Scrolling PDF Viewport */
-          <div className="w-full h-full relative overflow-y-auto overscroll-contain bg-[#111116] scrollbar-thin">
-            <object
-              data={`${project.previewUrl}#toolbar=0&navpanes=0&scrollbar=1&statusbar=0&messages=0&view=FitH`}
-              type="application/pdf"
-              className="w-full h-full min-h-full border-0 block"
-              aria-label={`${project.name} PDF preview`}
-            >
-              <iframe
-                src={`${project.previewUrl}#toolbar=0&navpanes=0&scrollbar=1&statusbar=0&messages=0&view=FitH`}
-                className="w-full h-full border-0 block bg-[#111116]"
-                title={`${project.name} PDF Portfolio Preview`}
-                loading="lazy"
-              />
-            </object>
-          </div>
-        ) : (
-          /* Contained Vertical-Scrolling Website Homepage Snapshot */
-          <div className="w-full h-full relative overflow-y-auto overscroll-contain bg-[#0a0a0f] scrollbar-thin">
-            <img
-              src={project.previewImage || project.previewUrl}
-              alt={`${project.name} Homepage Snapshot`}
-              className="w-full h-auto min-w-full block select-none pointer-events-none"
-              loading="lazy"
-              draggable={false}
-            />
-          </div>
-        )}
-
-        {/* Subtle, elegant "SCROLL TO EXPLORE" indicator pinned at bottom right */}
-        <div className="absolute bottom-3 right-3 pointer-events-none text-[9px] xs:text-[10px] font-mono text-white/90 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/15 select-none flex items-center gap-1.5 shadow-md z-10">
-          <span className="h-1.5 w-1.5 rounded-full bg-digitify-purple animate-pulse" />
-          <span>SCROLL TO EXPLORE</span>
-        </div>
+      <div className="relative w-full h-[360px] xs:h-[400px] sm:h-[460px] lg:h-[520px] overflow-hidden bg-black/95 dark:bg-[#0c0c10] flex items-center justify-center">
+        <img
+          src={project.previewImage || project.previewUrl}
+          alt={`${project.name} Portfolio Preview`}
+          className="w-full h-full object-contain object-top transition-transform duration-500 ease-out group-hover:scale-[1.02] select-none pointer-events-none"
+          loading="lazy"
+          draggable={false}
+        />
       </div>
 
       {/* ━━━━━━━━━━━━━━━━━━━━
@@ -135,7 +102,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             <span className="font-mono text-xs text-digitify-purple font-semibold">
               {project.number}
             </span>
-            <h3 className="text-lg xs:text-xl sm:text-2xl font-display font-medium text-black dark:text-white tracking-tight">
+            <h3 className="text-lg xs:text-xl sm:text-2xl font-display font-medium text-black dark:text-white group-hover:text-digitify-purple transition-colors tracking-tight">
               {project.name}
             </h3>
           </div>
