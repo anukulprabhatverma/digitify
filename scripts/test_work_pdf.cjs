@@ -8,10 +8,10 @@ async function runTest() {
   console.log('Launching headless Chrome...');
   const proc = spawn(chromePath, [
     '--headless=new',
-    '--remote-debugging-port=9223',
+    '--remote-debugging-port=9225',
     '--no-sandbox',
     '--disable-gpu',
-    '--window-size=1440,1000',
+    '--window-size=1440,1100',
     'http://127.0.0.1:5173/work'
   ]);
 
@@ -34,7 +34,7 @@ async function runTest() {
 
   try {
     await new Promise(r => setTimeout(r, 2500));
-    const listRes = await fetch('http://127.0.0.1:9223/json');
+    const listRes = await fetch('http://127.0.0.1:9225/json');
     const tabs = await listRes.json();
     const tab = tabs.find(t => t.url.includes('5173')) || tabs[0];
     const ws = new WebSocket(tab.webSocketDebuggerUrl);
@@ -68,21 +68,22 @@ async function runTest() {
 
     // 1. Desktop Screenshot of Work page
     const shotDesktop = await send(ws, 'Page.captureScreenshot', { format: 'png' });
-    fs.writeFileSync(artifactDir + '/work_desktop.png', Buffer.from(shotDesktop.data, 'base64'));
-    console.log('Saved work_desktop.png');
+    fs.writeFileSync(artifactDir + '/work_desktop_batch2.png', Buffer.from(shotDesktop.data, 'base64'));
+    console.log('Saved work_desktop_batch2.png');
 
-    // 2. Click Atlas Paints card to open modal
-    console.log('Clicking Atlas Paints card...');
+    // 2. Click Homecraft Textiles card (4th card) to open modal
+    console.log('Clicking Homecraft Textiles card...');
     await send(ws, 'Runtime.evaluate', {
       expression: `(() => {
-        const firstCard = document.querySelector('article');
-        if (firstCard) firstCard.click();
+        const cards = Array.from(document.querySelectorAll('article'));
+        const homecraft = cards.find(c => c.textContent.includes('Homecraft Textiles'));
+        if (homecraft) homecraft.click();
       })()`
     });
     await new Promise(r => setTimeout(r, 1200));
 
-    // Verify modal content
-    const modalCheck = await send(ws, 'Runtime.evaluate', {
+    // Verify modal content for Homecraft Textiles
+    const homecraftModalCheck = await send(ws, 'Runtime.evaluate', {
       expression: `(() => {
         const modal = document.querySelector('[role="dialog"]');
         if (!modal) return { open: false };
@@ -92,11 +93,11 @@ async function runTest() {
       })()`,
       returnByValue: true
     });
-    console.log('Atlas Paints modal check:', modalCheck.result.value);
+    console.log('Homecraft Textiles modal check:', homecraftModalCheck.result.value);
 
-    const shotModalAtlas = await send(ws, 'Page.captureScreenshot', { format: 'png' });
-    fs.writeFileSync(artifactDir + '/work_modal_atlas_paints.png', Buffer.from(shotModalAtlas.data, 'base64'));
-    console.log('Saved work_modal_atlas_paints.png');
+    const shotModalHomecraft = await send(ws, 'Page.captureScreenshot', { format: 'png' });
+    fs.writeFileSync(artifactDir + '/work_modal_homecraft.png', Buffer.from(shotModalHomecraft.data, 'base64'));
+    console.log('Saved work_modal_homecraft.png');
 
     // Close modal
     await send(ws, 'Runtime.evaluate', {
@@ -107,18 +108,18 @@ async function runTest() {
     });
     await new Promise(r => setTimeout(r, 600));
 
-    // 3. Click CoolBee card to open modal
-    console.log('Clicking CoolBee card...');
+    // 3. Click Sign of the Times London card (5th card) to open modal
+    console.log('Clicking Sign of the Times London card...');
     await send(ws, 'Runtime.evaluate', {
       expression: `(() => {
         const cards = Array.from(document.querySelectorAll('article'));
-        const coolbee = cards.find(c => c.textContent.includes('CoolBee'));
-        if (coolbee) coolbee.click();
+        const sign = cards.find(c => c.textContent.includes('Sign of the Times'));
+        if (sign) sign.click();
       })()`
     });
     await new Promise(r => setTimeout(r, 1200));
 
-    const coolbeeModalCheck = await send(ws, 'Runtime.evaluate', {
+    const signModalCheck = await send(ws, 'Runtime.evaluate', {
       expression: `(() => {
         const modal = document.querySelector('[role="dialog"]');
         if (!modal) return { open: false };
@@ -128,11 +129,11 @@ async function runTest() {
       })()`,
       returnByValue: true
     });
-    console.log('CoolBee modal check:', coolbeeModalCheck.result.value);
+    console.log('Sign of the Times modal check:', signModalCheck.result.value);
 
-    const shotModalCoolbee = await send(ws, 'Page.captureScreenshot', { format: 'png' });
-    fs.writeFileSync(artifactDir + '/work_modal_coolbee.png', Buffer.from(shotModalCoolbee.data, 'base64'));
-    console.log('Saved work_modal_coolbee.png');
+    const shotModalSign = await send(ws, 'Page.captureScreenshot', { format: 'png' });
+    fs.writeFileSync(artifactDir + '/work_modal_signofthetimes.png', Buffer.from(shotModalSign.data, 'base64'));
+    console.log('Saved work_modal_signofthetimes.png');
 
     // Close modal
     await send(ws, 'Runtime.evaluate', {
@@ -151,28 +152,15 @@ async function runTest() {
       deviceScaleFactor: 2,
       mobile: true
     });
-    await new Promise(r => setTimeout(r, 600));
+    await new Promise(r => setTimeout(r, 800));
 
     const shotMobile = await send(ws, 'Page.captureScreenshot', { format: 'png' });
-    fs.writeFileSync(artifactDir + '/work_mobile.png', Buffer.from(shotMobile.data, 'base64'));
-    console.log('Saved work_mobile.png');
-
-    // Click first card on mobile
-    await send(ws, 'Runtime.evaluate', {
-      expression: `(() => {
-        const firstCard = document.querySelector('article');
-        if (firstCard) firstCard.click();
-      })()`
-    });
-    await new Promise(r => setTimeout(r, 1000));
-
-    const shotMobileModal = await send(ws, 'Page.captureScreenshot', { format: 'png' });
-    fs.writeFileSync(artifactDir + '/work_modal_mobile.png', Buffer.from(shotMobileModal.data, 'base64'));
-    console.log('Saved work_modal_mobile.png');
+    fs.writeFileSync(artifactDir + '/work_mobile_batch2.png', Buffer.from(shotMobile.data, 'base64'));
+    console.log('Saved work_mobile_batch2.png');
 
     ws.close();
     proc.kill();
-    console.log('Test completed successfully!');
+    console.log('Batch 2 tests completed successfully!');
   } catch (err) {
     console.error('Error during test:', err);
     proc.kill();

@@ -2,7 +2,7 @@
  * Digitify Agency — Work Projects Data
  * 
  * Local Asset-Grounded Portfolio System:
- * - Projects 01-03 use local multi-page PDF presentation decks
+ * - Projects 01-05 use local multi-page PDF presentation decks
  * - First page of each PDF is utilized as the crisp contained preview thumbnail
  * - Clicking any card opens the complete multi-page PDF deck inside the local Digitify modal
  * - 100% offline-reliable, zero external iframes, zero redirect dependencies
@@ -106,31 +106,46 @@ export const projectsData: ProjectItem[] = [
     id: 'homecraft-textiles',
     number: '04',
     name: 'Homecraft Textiles',
-    category: 'Website',
+    category: 'E-COMMERCE / TEXTILES',
     categories: ['Website'],
-    previewType: 'image',
-    previewUrl: '/images/projects/homecraft.png',
-    previewImage: '/images/projects/homecraft.png',
+    previewType: 'pdf',
+    previewUrl: '/projects/homecraft_textiles.pdf',
+    previewImage: '/images/projects/homecraft-textiles.webp',
+    pdfUrl: '/projects/homecraft_textiles.pdf',
+    pdfPages: [
+      '/projects/pages/homecraft-textiles/page-1.webp',
+      '/projects/pages/homecraft-textiles/page-2.webp',
+      '/projects/pages/homecraft-textiles/page-3.webp',
+      '/projects/pages/homecraft-textiles/page-4.webp',
+    ],
+    totalPages: 4,
     domain: 'homecrafttextiles.com.au',
     description:
       'Curated textile commerce experience showcasing tactile fabrics, custom textures, and interior design materials.',
-    tag: 'WEBSITE',
-    fallbackMessage: 'Contained visual snapshot · Click to explore',
+    tag: 'E-COMMERCE / TEXTILES',
+    fallbackMessage: 'Local PDF presentation · Click to explore deck',
   },
   {
     id: 'sign-of-the-times-london',
     number: '05',
     name: 'Sign of the Times London',
-    category: 'Website',
+    category: 'E-COMMERCE / FASHION',
     categories: ['Website'],
-    previewType: 'image',
-    previewUrl: '/images/projects/signofthetimes.png',
-    previewImage: '/images/projects/signofthetimes.png',
+    previewType: 'pdf',
+    previewUrl: '/projects/sign_of_the_times_london.pdf',
+    previewImage: '/images/projects/sign-of-the-times-london.webp',
+    pdfUrl: '/projects/sign_of_the_times_london.pdf',
+    pdfPages: [
+      '/projects/pages/sign-of-the-times-london/page-1.webp',
+      '/projects/pages/sign-of-the-times-london/page-2.webp',
+      '/projects/pages/sign-of-the-times-london/page-3.webp',
+    ],
+    totalPages: 3,
     domain: 'signofthetimeslondon.com',
     description:
       'Curated luxury resale and fashion e-commerce storefront delivering a high-end editorial shopping experience.',
-    tag: 'WEBSITE',
-    fallbackMessage: 'Contained visual snapshot · Click to explore',
+    tag: 'E-COMMERCE / FASHION',
+    fallbackMessage: 'Local PDF presentation · Click to explore deck',
   },
   {
     id: 'urban-platter',
